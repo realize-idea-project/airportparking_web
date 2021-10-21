@@ -3,8 +3,8 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import Slider from "react-slick";
-import { percent, px } from '../../utils';
-import { ScreenBreakPoint } from '../../constants';
+import { percent, px } from '../../../utils';
+import { ScreenBreakPoint } from '../../../constants';
 
 
 interface Props {
@@ -23,9 +23,9 @@ export const Carousel: FC<Props> = ({ images }) => {
     autoplay: true,
     autoplaySpeed: 9000,
   };
-
+ 
  return (
-    <CustomSlider {...settings}>
+    <CustomSlider {...settings} >
       {
         images.map((path, index) => {
           return (
@@ -43,9 +43,10 @@ export const Carousel: FC<Props> = ({ images }) => {
 const CustomSlider = styled(Slider)`
   width: 100vw;
   position: relative;
+  
 
   .slick-list {
-    height: 46vw;
+    height: 85vw;
   }
 
   .slick-prev {
@@ -79,11 +80,13 @@ const CustomSlider = styled(Slider)`
 `;
 
 const ImageContainer = styled.div`
-  /* max-height: 500px; */
+  max-height: 500px;
+  
 `;
 
 const Image = styled.img`
   width: ${percent(100)};
   height: ${percent(100)};
+  
 `;
 

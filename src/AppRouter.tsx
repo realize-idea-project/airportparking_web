@@ -12,6 +12,13 @@ const AppRouter = () => {
     <>
       <Switch>
         <Route path={RouterPath.Home} exact component={Home} />
+        <Route path={RouterPath.AboutUs} exact component={Home} />
+        <Route path={RouterPath.Reservation} exact component={Home} />
+        <Route path={RouterPath.Instruction} exact component={Home} />
+        <Route path={RouterPath.Price} exact component={Home} />
+        <Route path={RouterPath.Facility} exact component={Home} />
+        <Route path={RouterPath.ContactUs} exact component={Home} />
+
       </Switch>
     </>
   );

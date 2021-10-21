@@ -1,0 +1,1 @@
+export type { RouterPathType } from './common';

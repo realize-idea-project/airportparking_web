@@ -2,32 +2,35 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router';
 import { createPortal } from 'react-dom';
-import { Blank } from '../common';
-import { RouterPath, ScreenBreakPoint } from '../../constants';
+import { Blank } from '../Blank';
+import { ScreenBreakPoint } from '../../../constants';
 
-import { px, percent } from '../../utils';
+import { RouterPathType } from '../../../types'
+import { TabDefinitions } from './types';
 
-// interface Props {
-//   onClose: () => void;
-//   onClickTab: (route: RouterPath) => () => void;
-//   tabs: TabDefinitions;
-// }
+import { px, percent } from '../../../utils';
+
+interface Props {
+  onClose: () => void;
+  onClickTab: (route: RouterPathType) => () => void;
+  tabs: TabDefinitions;
+}
 
 const { Desktop } = ScreenBreakPoint;
 
-export const SideMenuBar: FC<any> = ({ onClose, tabs, onClickTab }) => {
+export const SideMenuBar: FC<Props> = ({ onClose, tabs, onClickTab }) => {
 
   const { pathname } = useLocation();
-
+  
   return createPortal(
     <PositionRelativeContainer>
       <Overlay onClick={onClose} />
       <ModalContainer>
         <TabContainer>
-          {/* {
-            Array.from(tabs).map(([route, detail]) => {
+          {
+            Array.from(tabs).map(([route, detail], index) => {
               return (
-                <div key={uuidv4()}>
+                <div key={index.toString()}>
                   <PageTab 
                     onClick={onClickTab(route)}
                     isActive={pathname === route}
@@ -36,7 +39,7 @@ export const SideMenuBar: FC<any> = ({ onClose, tabs, onClickTab }) => {
                 </div>
               )
             })
-          } */}
+          }
         </TabContainer>
       </ModalContainer>
     </PositionRelativeContainer>,

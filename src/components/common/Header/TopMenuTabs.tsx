@@ -3,25 +3,27 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router';
 
-import { RouterPath, ScreenBreakPoint } from '../../constants';
+import { ScreenBreakPoint } from '../../../constants';
+import { RouterPathType } from '../../../types'
+import { TabDefinitions } from './types';
 
-import { px, percent } from '../../utils';
+import { px, percent } from '../../../utils';
 
 const { Mobile, Desktop } = ScreenBreakPoint;
 
-// interface Props {
-//   onClickTab: (route: RouterPath) => () => void;
-//   tabs: TabDefinitions;
-// }
+interface Props {
+  onClickTab: (route: RouterPathType) => () => void;
+  tabs: TabDefinitions;
+}
 
-export const TopMenuTabs: FC<any> = ({ tabs, onClickTab }) => {
+export const TopMenuTabs: FC<Props> = ({ tabs, onClickTab }) => {
   const { pathname } = useLocation();
   return (
     <>
-      {/* {
-        Array.from(tabs).map(([route, detail]) => {
+      {
+        Array.from(tabs).map(([route, detail], index) => {
           return (
-            <TabContainer key={uuidv4()}>
+            <TabContainer key={index.toString()}>
               <PageTab
                 onClick={onClickTab(route)}
                 isActive={pathname === route}
@@ -31,7 +33,7 @@ export const TopMenuTabs: FC<any> = ({ tabs, onClickTab }) => {
             </TabContainer>
           );
         })
-      } */}
+      }
     </>
   );
 };

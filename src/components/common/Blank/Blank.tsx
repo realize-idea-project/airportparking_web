@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { px } from '../../utils';
+import { px } from '../../../utils';
 
 interface Props {
   height?: number;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ScreenBreakPoint } from '../../constants';
-import { px } from '../../utils'
+import { ScreenBreakPoint } from '../../../constants';
+import { px } from '../../../utils'
 
 
 const { Mobile, Desktop } = ScreenBreakPoint;

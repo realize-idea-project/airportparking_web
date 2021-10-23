@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Blank } from '../common';
-import { px } from '../../utils';
+import { Blank } from '../../common';
+import { px } from '../../../utils';
 
 
 export const ContactCard: FC = () => {
@@ -28,7 +28,7 @@ const ContactContainer = styled.div`
   width: ${px(300)};
   height: ${px(180)};
 
-  top: ${px(160)};
+  top: ${px(90)};
   left: ${px(17)};
   
   position: absolute;

@@ -1,2 +1,2 @@
-export type RouterPathType = '/' | '/aboutUs' | '/reservation' | '/instruction' | '/price' | '/facility' | '/contactUs';
+export type RouterPathType = '/' | '/aboutUs' | '/reservation' | '/instruction' | '/price' | '/facility' | '/contactUs' | '/QnA';
 

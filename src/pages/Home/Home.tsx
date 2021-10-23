@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
+import { RouterPathType } from 'types';
 import { withLayout } from '../../shared';
-import { MainCarousel } from '../../components/Home';
+import { MainCarousel, MenuBar, QnA } from '../../components/Home';
 import { ScreenBreakPoint, RouterPath, homeImages } from '../../constants';
 import { px, percent } from '../../utils';
 
@@ -15,14 +16,17 @@ export const Home = withLayout(() => {
 
   const mainImageList = Object.values(homeImages);
 
-  // const moveTo = (path: RouterPath) => () =>{
-  //   history.push(path)
-  // };
+  const moveTo = (path: RouterPathType) =>{
+    history.push(path)
+  };
 
   return (
     <Container>
       <MainCarousel imagelist={mainImageList}/>
-      
+      <MenuBar onClick={moveTo} />
+      <ContentsContainer>
+        <QnA  onClickCard={moveTo} onClickShowMore={moveTo} />
+      </ContentsContainer>
     </Container>
   );
 });
@@ -42,3 +46,6 @@ const Container = styled.div`
 `;
 
 
+const ContentsContainer = styled.div`
+  padding: 0 ${px(10)};
+`;

@@ -3,8 +3,8 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import Slider from "react-slick";
 import { ContactCard } from './ContactCard';
-import { px, percent } from '../../utils';
-import { ScreenBreakPoint } from '../../constants';
+import { px, percent } from '../../../utils';
+import { ScreenBreakPoint } from '../../../constants';
 
 interface Props {
   imagelist: string[];
@@ -50,7 +50,7 @@ const CustomSlider = styled(Slider)`
   
 
   .slick-list {
-    height: 85vw;
+    height: 60vw;
   }
 
   .slick-prev {
@@ -70,7 +70,7 @@ const CustomSlider = styled(Slider)`
 
 
     @media only screen and (max-width: ${px(Mobile)}) {
-      bottom: ${px(40)};
+      bottom: ${px(20)};
     }
   }
 

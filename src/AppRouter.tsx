@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 
 import { RouterPath } from './constants';
-import { Home } from './pages';
+import { Home , Reservation } from './pages';
 
 
 const Test = () => {
@@ -18,7 +18,7 @@ const AppRouter = () => {
         <Route path={RouterPath.Home} exact component={Home} />
         <Route path={RouterPath.QnA} exact  component={Test} />
         <Route path={RouterPath.Instruction} exact component={Test} />
-        <Route path={RouterPath.Reservation} exact component={Test} />
+        <Route path={RouterPath.Reservation} exact component={Reservation} />
         <Route path={RouterPath.Price} exact component={Test} />
         
 

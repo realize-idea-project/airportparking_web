@@ -1,1 +1,1 @@
-export type { RouterPathType } from './common';
+export type { RouterPathType, AirportType } from './common';

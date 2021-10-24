@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { RouterPathType } from 'types';
 import { withLayout } from '../../shared';
 import { MainCarousel, MenuBar, QnA } from '../../components/Home';
-import { ScreenBreakPoint, RouterPath, homeImages } from '../../constants';
+import { ScreenBreakPoint, homeImages } from '../../constants';
 import { px, percent } from '../../utils';
 
 

@@ -3,14 +3,13 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import Slider from "react-slick";
 import { ContactCard } from './ContactCard';
-import { px, percent } from '../../../utils';
 import { ScreenBreakPoint } from '../../../constants';
 
 interface Props {
   imagelist: string[];
 }
 
-const { Mobile } = ScreenBreakPoint;
+const { Mobile, Desktop } = ScreenBreakPoint;
 
 export const MainCarousel: FC<Props> = ({ imagelist }) => {
 
@@ -25,29 +24,26 @@ export const MainCarousel: FC<Props> = ({ imagelist }) => {
   };
 
   return (
-    <Container>
+    <>
       <ContactCard />
       <CustomSlider {...settings} >
         {
-          imagelist.map((path, index) => {
+          imagelist.map((path) => {
             return (
-              <ImageContainer key={index.toString()}>
+              <ImageContainer key={path}>
                 <Image src={path} />
               </ImageContainer>
             );
           })
         }
       </CustomSlider>
-    </Container>
+    </>
   );
 };
 
-const Container = styled.div``;
 
 const CustomSlider = styled(Slider)`
-  width: 100vw;
   position: relative;
-  
 
   .slick-list {
     height: 60vw;
@@ -55,7 +51,6 @@ const CustomSlider = styled(Slider)`
 
   .slick-prev {
     left: 0;
-    /* z-index: 100; */
   }
 
   .slick-next {
@@ -64,35 +59,39 @@ const CustomSlider = styled(Slider)`
   }
 
   .slick-dots {
-    bottom: ${px(15)};
-    z-index: 100;
+    z-index: 1;
 
+    @media only screen and (max-width: ${Mobile}px) {
+      bottom: 4vw;
+    }
 
+    @media only screen and (min-width: ${Mobile}px) {
+      display: none;
+    }
 
-    @media only screen and (max-width: ${px(Mobile)}) {
-      bottom: ${px(20)};
+    @media only screen and (min-width: ${Desktop}px) {
+      display: none;
     }
   }
 
   .slick-dots li button:before {
-    font-size: ${px(10)};
+    font-size: 10px;
     color: white;
 
-    @media only screen and (max-width: ${px(Mobile)}) {
-      font-size: ${px(7)};
+    @media only screen and (max-width: ${Mobile}px) {
+      /* font-size: 7px; */
+      font-size: 2vw;
     }
   }
-
 `;
 
 const ImageContainer = styled.div`
+  width: 100%;
   max-height: 500px;
-  
 `;
 
 const Image = styled.img`
-  width: ${percent(100)};
-  height: ${percent(100)};
-  
+  width: 100%;
+  height: 100%;
 `;
 

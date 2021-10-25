@@ -1,22 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
 import { ScreenBreakPoint, RouterPath, images } from '../../../constants';
 import { px, screenWidth } from '../../../utils'
-
 import { RouterPathType } from '../../../types';
 import { TabDefinitions } from './types';
 
-
 const { Mobile, Desktop } = ScreenBreakPoint;
 
-const tabDefinitions: TabDefinitions = new Map()
-  .set(RouterPath.AboutUs, { title: '주차장소개' })
-  .set(RouterPath.Instruction, { title: '이용안내'})
-  .set(RouterPath.Reservation, { title: '온라인예약' })
-  .set(RouterPath.Price, { title: '주차요금' })
-  .set(RouterPath.Facility, { title: '주차장시설' })
-  .set(RouterPath.ContactUs, { title: '고객센터' })
+// const tabDefinitions: TabDefinitions = new Map()
+//   .set(RouterPath.AboutUs, { title: '주차장소개' })
+//   .set(RouterPath.Instruction, { title: '이용안내'})
+//   .set(RouterPath.Reservation, { title: '온라인예약' })
+//   .set(RouterPath.Price, { title: '주차요금' })
+//   .set(RouterPath.Facility, { title: '주차장시설' })
+//   .set(RouterPath.ContactUs, { title: '고객센터' })
+
+export const headerHeight = {
+  underMobile: '50px',
+  overMobile: '120px',
+  overDesktop: '120px',
+}
 
 export const Header = () => {
   const history = useHistory();
@@ -47,15 +51,15 @@ const Container = styled.div`
   position: fixed;
 
   @media only screen and (max-width: ${Mobile}px) {
-    height: 50px;
+    height: ${headerHeight.underMobile};
   }
 
   @media only screen and (min-width: ${Mobile}px) {
-    height: 120px;
+    height: ${headerHeight.overMobile};
   }
 
   @media only screen and (min-width: ${Desktop}px) {
-    height: 120px;
+    height: ${headerHeight.overDesktop};
   }
 `;
 

@@ -2,7 +2,9 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Blank } from '../../common';
 import { px } from '../../../utils';
+import { ScreenBreakPoint } from '../../../constants';
 
+const { Mobile, Desktop } = ScreenBreakPoint;
 
 export const ContactCard: FC = () => {
 
@@ -24,24 +26,37 @@ export const ContactCard: FC = () => {
 const Container = styled.div``;
 
 const ContactContainer = styled.div`
-  background-color: rgba(0, 0, 0, 0.6);
-  width: ${px(300)};
-  height: ${px(180)};
-
-  top: ${px(90)};
-  left: ${px(17)};
-  
   position: absolute;
   z-index: 1;
-  padding: 0 ${px(20)};
+  padding: 0 5vw;
+  background-color: rgba(0, 0, 0, 0.6);
 
   display: flex;
   flex-direction: column;
+  
+  @media only screen and (max-width: ${Mobile}px) {
+    width: 82vw;
+    min-width: 300px;
+    height: 48vw;
+    min-height: 150px;
+
+    top: 22vw;
+    left: 4vw;
+  }
+
+  @media only screen and (min-width: ${Mobile}px) {
+    display: none;
+  }
+
+  @media only screen and (min-width: ${Desktop}px) {
+    display: none;
+  }
+  
 `;
 
 const ContactTitle = styled.div`
   color: white;
-  font-size: ${px(12)};
+  font-size: 3vw;
 `;
 
 const Separator = styled.div`
@@ -51,7 +66,7 @@ const Separator = styled.div`
 `;
 
 const ContactText = styled.div`
-  font-size: ${px(24)};
+  font-size: 6vw;
   font-weight: 700;
   color: white;
 `;

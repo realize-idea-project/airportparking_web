@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Blank } from '../../common';
-import { px } from '../../../utils';
 import { ScreenBreakPoint } from '../../../constants';
 
 const { Mobile, Desktop } = ScreenBreakPoint;
@@ -60,8 +59,8 @@ const ContactTitle = styled.div`
 `;
 
 const Separator = styled.div`
-  width: ${px(80)};
-  height: ${px(1)};
+  width: 80px;
+  height: 1px;
   background-color: white;
 `;
 

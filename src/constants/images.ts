@@ -1,7 +1,9 @@
 export const images = {
-  hamburger: `${process.env.PUBLIC_URL}/assets/Hamburger_icon.png`,
-  qIcon: `${process.env.PUBLIC_URL}/assets/q_icon.png`,
-  calendarIcon: `${process.env.PUBLIC_URL}/assets/calendar_icon.png`,
+  hamburger: `${process.env.PUBLIC_URL}/assets/common/Hamburger_icon.png`,
+  qIcon: `${process.env.PUBLIC_URL}/assets/common/q_icon.png`,
+  calendarIcon: `${process.env.PUBLIC_URL}/assets/common/calendar_icon.png`,
+  fullLogo: `${process.env.PUBLIC_URL}/assets/common/full_logo.png`,
+  imgLogo: `${process.env.PUBLIC_URL}/assets/common/img_logo.png`,
 };
 
 export const homeImages = {

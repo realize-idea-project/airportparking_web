@@ -18,14 +18,14 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    /* background-color: black; */
+    
 
-    -ms-overflow-style: none;  /* IE and Edge */
-   scrollbar-width: none;  /* Firefox */
+     -ms-overflow-style: none; 
+   scrollbar-width: none; 
 
     ::-webkit-scrollbar {
       display: none;
-    }
+    } 
   }
 
   #root {

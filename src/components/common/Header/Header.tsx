@@ -11,8 +11,8 @@ const { Desktop_S } = DeviceSize;
 
 export const headerHeight = {
   mobile: '50px',
-  pad: '70px',
-  desktop: '80px',
+  pad: '100px',
+  desktop: '100px',
 }
 
 export const Header = () => {
@@ -40,9 +40,10 @@ const Container = styled.div`
   align-items: center;
 
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   background-color: tomato;
+  
 
   @media only screen and (${ MobileXS }) {
     height: ${headerHeight.mobile};

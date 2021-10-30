@@ -3,19 +3,20 @@ import styled from 'styled-components';
 import { Blank } from '../../common';
 import { ScreenBreakPoint } from '../../../constants';
 
-const { MobileS } = ScreenBreakPoint;
+const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 
 export const ContactCard: FC = () => {
 
   return (
     <Container>
       <ContactContainer>
-        <Blank height={20} />
+        <Blank height={5} />
         <ContactTitle>최고의주차장 라라주차</ContactTitle>
-        <Blank height={10} />
+        <Blank height={1} />
         <Separator />
-        <Blank height={20} />
+        <Blank height={4} />
         <ContactText>예약문의 : <ContactYellow>010-6202-2114</ContactYellow></ContactText>
+        <Blank height={2} />
         <ContactText>입출고 : <ContactYellow>010-2040-6634</ContactYellow></ContactText>
       </ContactContainer>
     </Container>
@@ -33,38 +34,43 @@ const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media only screen and (${ MobileS }) {
-    /* width: 75vw;
-    min-width: 300px; */
-    height: 48vw;
-    background-color:red;
+  height: 48vw;
+  width: 80vw;
+  min-height: 150px;
+  left: 4.5vw;
 
-    min-height: 150px;
-
-    top: 22vw;
-    left: 4vw;
+  @media only screen and (${ MobileXS }) {
+    bottom: 16vw;
   }
 
-  
   @media only screen and (${ MobileS }) {
-    width: 82vw;
-    min-width: 300px;
-    height: 48vw;
-    min-height: 150px;
-
-    top: 22vw;
-    left: 4vw;
+    bottom: 14vw;
   }
 
+  @media only screen and (${ MobileM }) {
+    bottom: 12vw;
+  }
+
+  @media only screen and (${ MobileL }) {
+    bottom: 10vw;
+  }
+
+  @media only screen and (${ PadS }) {
+    bottom: 8vw;
+  }
+
+  @media only screen and (${ Desktop }) {
+    bottom: 8vw;
+  }
 `;
 
 const ContactTitle = styled.div`
   color: white;
-  font-size: 3vw;
+  font-size: 4vw;
 `;
 
 const Separator = styled.div`
-  width: 80px;
+  width: 21vw;
   height: 1px;
   background-color: white;
 `;

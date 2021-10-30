@@ -22,9 +22,8 @@ export const Home = withLayout(() => {
   return (
     <>
       <PageContainer>
-        j
-        {/* <MainCarousel imagelist={mainImageList}/>
-        <MenuBar onClick={moveTo} />
+        <MainCarousel imagelist={mainImageList}/>
+        {/* <MenuBar onClick={moveTo} />
         <ContentsContainer>
           <QnA  onClickCard={moveTo} onClickShowMore={moveTo} />
         </ContentsContainer> */}
@@ -35,4 +34,5 @@ export const Home = withLayout(() => {
 
 const ContentsContainer = styled.div`
   padding: 0 ${px(10)};
+  
 `;

@@ -13,6 +13,6 @@ export const Blank: FC<Props> = ({ height, width }) => {
 };
 
 const BlankDiv: any = styled.div`
-  height: ${({ height }: any) => px(height)};
-  width: ${({ width }: any) => px(width)};
+  height: ${({ height }: any) => `${height}vw`};
+  width: ${({ width }: any) => `${width}vw`};
 `;

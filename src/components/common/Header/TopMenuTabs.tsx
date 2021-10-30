@@ -9,7 +9,7 @@ import { TabDefinitions } from './types';
 
 import { px, percent } from '../../../utils';
 
-const { Mobile, Desktop } = ScreenBreakPoint;
+
 
 interface Props {
   onClickTab: (route: RouterPathType) => () => void;
@@ -50,16 +50,6 @@ const PageTab = styled.div<{isActive: boolean}>`
   font-weight: ${({ isActive }: any) => isActive ? 'bold' : 'normal' };
   margin-right: ${percent(10)};
 
-  @media only screen and (min-width: ${px(Mobile)}) {
-    width: ${px(100)};
-    font-size: ${px(16)};
-    line-height: ${px(20)};
-  }
 
-  @media only screen and (min-width: ${px(Desktop)}) {
-    width: ${px(150)};
-    font-size: ${px(20)};
-    line-height: ${px(24)};
-  }
 `;
 

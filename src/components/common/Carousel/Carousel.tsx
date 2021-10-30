@@ -11,7 +11,7 @@ interface Props {
   images: string[];
 }
 
-const { Mobile } = ScreenBreakPoint;
+const { MobileS, MobileM } = ScreenBreakPoint;
 
 export const Carousel: FC<Props> = ({ images }) => {
   const settings = {
@@ -63,7 +63,11 @@ const CustomSlider = styled(Slider)`
     bottom: ${px(15)};
     z-index: 100;
 
-    @media only screen and (max-width: ${px(Mobile)}) {
+    @media only screen and (${ MobileS }) {
+      bottom: ${px(1)};
+    }
+
+    @media only screen and (${ MobileM }) {
       bottom: ${px(1)};
     }
   }
@@ -72,7 +76,11 @@ const CustomSlider = styled(Slider)`
     font-size: ${px(10)};
     color: white;
 
-    @media only screen and (max-width: ${px(Mobile)}) {
+    @media only screen and (${ MobileS }) {
+      font-size: ${px(7)};
+    }
+
+    @media only screen and (${ MobileM }) {
       font-size: ${px(7)};
     }
   }

@@ -50,9 +50,7 @@ export const SideMenuBar: FC<Props> = ({ onClose, tabs, onClickTab }) => {
 const PositionRelativeContainer = styled.div`
   position: relative;
   
-  @media only screen and (min-width: ${px(Desktop)}) {
-    display: none;
-  }
+
 `;
 
 const Overlay = styled.div`

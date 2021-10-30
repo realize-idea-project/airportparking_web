@@ -19,6 +19,13 @@ export const GlobalStyle = createGlobalStyle`
     font: inherit;
     vertical-align: baseline;
     /* background-color: black; */
+
+    -ms-overflow-style: none;  /* IE and Edge */
+   scrollbar-width: none;  /* Firefox */
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   #root {

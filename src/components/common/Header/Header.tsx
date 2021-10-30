@@ -1,32 +1,25 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
-import { ScreenBreakPoint, RouterPath, images } from '../../../constants';
-import { px, screenWidth } from '../../../utils'
+import { ScreenBreakPoint, RouterPath, images, DeviceSize } from '../../../constants';
+import { screenWidth } from '../../../utils'
 import { RouterPathType } from '../../../types';
-import { TabDefinitions } from './types';
 
-const { Mobile, Desktop } = ScreenBreakPoint;
-
-// const tabDefinitions: TabDefinitions = new Map()
-//   .set(RouterPath.AboutUs, { title: '주차장소개' })
-//   .set(RouterPath.Instruction, { title: '이용안내'})
-//   .set(RouterPath.Reservation, { title: '온라인예약' })
-//   .set(RouterPath.Price, { title: '주차요금' })
-//   .set(RouterPath.Facility, { title: '주차장시설' })
-//   .set(RouterPath.ContactUs, { title: '고객센터' })
+const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
+const { Desktop_S } = DeviceSize;
 
 export const headerHeight = {
-  underMobile: '50px',
-  overMobile: '120px',
-  overDesktop: '120px',
+  mobile: '50px',
+  pad: '70px',
+  desktop: '80px',
 }
 
 export const Header = () => {
   const history = useHistory();
 
   const handleClickLogo = (router: RouterPathType) => () => {
-    if (screenWidth() <= Mobile) window.scrollTo(0, 0);
+    if (screenWidth() <= Desktop_S) window.scrollTo(0, 0);
 
     if (history.location.pathname === RouterPath.Home) return;
     history.push(router);
@@ -49,33 +42,70 @@ const Container = styled.div`
   width: 100%;
   z-index: 1;
   position: fixed;
+  background-color: tomato;
 
-  @media only screen and (max-width: ${Mobile}px) {
-    height: ${headerHeight.underMobile};
+  @media only screen and (${ MobileXS }) {
+    height: ${headerHeight.mobile};
+    background-color: blue;
   }
 
-  @media only screen and (min-width: ${Mobile}px) {
-    height: ${headerHeight.overMobile};
+  @media only screen and (${ MobileS }) {
+    height: ${headerHeight.mobile};
+    background-color: red;
   }
 
-  @media only screen and (min-width: ${Desktop}px) {
-    height: ${headerHeight.overDesktop};
+  @media only screen and (${ MobileM }) {
+    height: ${headerHeight.mobile};
+    background-color: yellow;
+  }
+
+  @media only screen and (${ MobileL }) {
+    height: ${headerHeight.mobile};
+    background-color: green;
+  }
+
+  @media only screen and (${ PadS }) {
+    height: ${headerHeight.pad};
+    background-color: gray;
+  }
+
+  @media only screen and (${ Desktop }) {
+    height: ${headerHeight.desktop};
+    background-color: tomato;
   }
 `;
 
 const LogoContainer = styled.div`
   cursor: pointer;
 
-  @media only screen and (max-width: ${px(Mobile)}) {
-    width: 180px;
+  @media only screen and (${ MobileXS }) {
+    height: ${headerHeight.mobile};
+    background-color: blue;
   }
 
-  @media only screen and (min-width: ${px(Mobile)}) {
-    /* height: 120px;; */
+  @media only screen and (${ MobileS }) {
+    height: ${headerHeight.mobile};
+    background-color: red;
   }
 
-  @media only screen and (min-width: ${px(Desktop)}) {
-    /* height: 120px;; */
+  @media only screen and (${ MobileM }) {
+    height: ${headerHeight.mobile};
+    background-color: yellow;
+  }
+
+  @media only screen and (${ MobileL }) {
+    height: ${headerHeight.mobile};
+    background-color: green;
+  }
+
+  @media only screen and (${ PadS }) {
+    height: ${headerHeight.pad};
+    background-color: gray;
+  }
+
+  @media only screen and (${ Desktop }) {
+    height: ${headerHeight.desktop};
+    background-color: tomato;
   }
 `;
 

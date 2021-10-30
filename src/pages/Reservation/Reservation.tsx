@@ -9,7 +9,7 @@ import { ReservationHeader, ServiceUsePeriod } from '../../components/Reservatio
 
 const GimpoAirport: AirportType = "Gimpo"
 
-const { Mobile } = ScreenBreakPoint;
+const { MobileS, MobileM } = ScreenBreakPoint;
 
 export const Reservation = withLayout(() => {
   return (
@@ -22,8 +22,11 @@ export const Reservation = withLayout(() => {
 
 const Container = styled.div`
 
+@media only screen and (${ MobileS }) {
+  padding-top: 50px;
+  }
 
-  @media only screen and (max-width: ${px(Mobile)}) {
-    padding-top: ${px(50)};
+  @media only screen and (${ MobileM }) {
+    padding-top: 50px;
   }
 `;

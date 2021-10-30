@@ -9,7 +9,7 @@ interface Props {
   imagelist: string[];
 }
 
-const { Mobile, Desktop } = ScreenBreakPoint;
+const { MobileS, MobileM, Desktop } = ScreenBreakPoint;
 
 export const MainCarousel: FC<Props> = ({ imagelist }) => {
 
@@ -61,24 +61,27 @@ const CustomSlider = styled(Slider)`
   .slick-dots {
     z-index: 1;
 
-    @media only screen and (max-width: ${Mobile}px) {
-      bottom: 4vw;
-    }
+    @media only screen and (${ MobileS }) {
+    bottom: 4vw;
+  }
 
-    @media only screen and (min-width: ${Mobile}px) {
-      display: none;
-    }
+  @media only screen and (${ MobileM }) {
+    bottom: 4vw;
+    
+  }
 
-    @media only screen and (min-width: ${Desktop}px) {
-      display: none;
-    }
+  @media only screen and (${ Desktop }) {
+    display: none;
+  }
+
+  
   }
 
   .slick-dots li button:before {
     font-size: 10px;
     color: white;
 
-    @media only screen and (max-width: ${Mobile}px) {
+    @media only screen and (${ MobileS }) {
       /* font-size: 7px; */
       font-size: 2vw;
     }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Blank } from '../../common';
 import { ScreenBreakPoint } from '../../../constants';
 
-const { Mobile, Desktop } = ScreenBreakPoint;
+const { MobileS } = ScreenBreakPoint;
 
 export const ContactCard: FC = () => {
 
@@ -32,8 +32,21 @@ const ContactContainer = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  @media only screen and (${ MobileS }) {
+    /* width: 75vw;
+    min-width: 300px; */
+    height: 48vw;
+    background-color:red;
+
+    min-height: 150px;
+
+    top: 22vw;
+    left: 4vw;
+  }
+
   
-  @media only screen and (max-width: ${Mobile}px) {
+  @media only screen and (${ MobileS }) {
     width: 82vw;
     min-width: 300px;
     height: 48vw;
@@ -43,14 +56,6 @@ const ContactContainer = styled.div`
     left: 4vw;
   }
 
-  @media only screen and (min-width: ${Mobile}px) {
-    display: none;
-  }
-
-  @media only screen and (min-width: ${Desktop}px) {
-    display: none;
-  }
-  
 `;
 
 const ContactTitle = styled.div`

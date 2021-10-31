@@ -2,18 +2,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
-import { ScreenBreakPoint, RouterPath, images, DeviceSize } from '../../../constants';
+import { ScreenBreakPoint, RouterPath, images, DeviceSize, HeaderHeight } from '../../../constants';
 import { screenWidth } from '../../../utils'
 import { RouterPathType } from '../../../types';
 
 const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 const { Desktop_S } = DeviceSize;
 
-export const headerHeight = {
-  mobile: '50px',
-  pad: '100px',
-  desktop: '100px',
-}
 
 export const Header = () => {
   const history = useHistory();
@@ -46,32 +41,32 @@ const Container = styled.div`
   
 
   @media only screen and (${ MobileXS }) {
-    height: ${headerHeight.mobile};
+    height: ${HeaderHeight.mobileXS};
     background-color: blue;
   }
 
   @media only screen and (${ MobileS }) {
-    height: ${headerHeight.mobile};
+    height: ${HeaderHeight.mobileS};
     background-color: red;
   }
 
   @media only screen and (${ MobileM }) {
-    height: ${headerHeight.mobile};
+    height: ${HeaderHeight.mobileM};
     background-color: yellow;
   }
 
   @media only screen and (${ MobileL }) {
-    height: ${headerHeight.mobile};
+    height: ${HeaderHeight.mobileL};
     background-color: green;
   }
 
   @media only screen and (${ PadS }) {
-    height: ${headerHeight.pad};
+    height: ${HeaderHeight.padS};
     background-color: gray;
   }
 
   @media only screen and (${ Desktop }) {
-    height: ${headerHeight.desktop};
+    height: ${HeaderHeight.desktop};
     background-color: tomato;
   }
 `;
@@ -80,32 +75,32 @@ const LogoContainer = styled.div`
   cursor: pointer;
 
   @media only screen and (${ MobileXS }) {
-    height: ${headerHeight.mobile};
+    height: ${HeaderHeight.mobileXS};
     background-color: blue;
   }
 
   @media only screen and (${ MobileS }) {
-    height: ${headerHeight.mobile};
+    height: ${HeaderHeight.mobileS};
     background-color: red;
   }
 
   @media only screen and (${ MobileM }) {
-    height: ${headerHeight.mobile};
+    height: ${HeaderHeight.mobileM};
     background-color: yellow;
   }
 
   @media only screen and (${ MobileL }) {
-    height: ${headerHeight.mobile};
+    height: ${HeaderHeight.mobileL};
     background-color: green;
   }
 
   @media only screen and (${ PadS }) {
-    height: ${headerHeight.pad};
+    height: ${HeaderHeight.padS};
     background-color: gray;
   }
 
   @media only screen and (${ Desktop }) {
-    height: ${headerHeight.desktop};
+    height: ${HeaderHeight.desktop};
     background-color: tomato;
   }
 `;

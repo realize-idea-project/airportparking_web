@@ -1,32 +1,31 @@
 import styled from 'styled-components';
-import { ScreenBreakPoint } from '../../../constants';
-import { headerHeight } from '../Header';
+import { ScreenBreakPoint, HeaderHeight } from '../../../constants';
 
 const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 
 export const PageContainer = styled.div`
 
   @media only screen and (${ MobileXS }) {
-    padding-top: ${headerHeight.mobile};
+    padding-top: ${HeaderHeight.mobileXS};
   }
 
   @media only screen and (${ MobileS }) {
-    padding-top: ${headerHeight.mobile}
+    padding-top: ${HeaderHeight.mobileS}
   }
 
   @media only screen and (${ MobileM }) {
-    padding-top: ${headerHeight.mobile}
+    padding-top: ${HeaderHeight.mobileM}
   }
 
   @media only screen and (${ MobileL }) {
-    padding-top: ${headerHeight.mobile}
+    padding-top: ${HeaderHeight.mobileL}
   }
 
   @media only screen and (${ PadS }) {
-    padding-top: ${headerHeight.pad};
+    padding-top: ${HeaderHeight.padS};
   }
 
   @media only screen and (${ Desktop }) {
-    padding-top: ${headerHeight.desktop};
+    padding-top: ${HeaderHeight.desktop};
   }
 `;

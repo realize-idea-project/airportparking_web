@@ -17,3 +17,11 @@ export const ScreenBreakPoint = {
   Desktop: `min-width: ${DeviceSize.Desktop_S}px`,
 };
 
+export const HeaderHeight = {
+  mobileXS: '50px',
+  mobileS: '60px',
+  mobileM: '65px',
+  mobileL: '70px',
+  padS: '100px',
+  desktop: '100px',
+}

@@ -43,7 +43,6 @@ export const MainCarousel: FC<Props> = ({ imagelist }) => {
 
 const Container = styled.div`
   position: relative;
-  border: 5px solid red;
 `;
 
 const CustomSlider = styled(Slider)`

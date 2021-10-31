@@ -36,7 +36,6 @@ const ContactContainer = styled.div`
 
   height: 48vw;
   width: 80vw;
-  min-height: 150px;
   left: 4.5vw;
 
   @media only screen and (${ MobileXS }) {

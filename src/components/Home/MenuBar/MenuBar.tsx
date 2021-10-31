@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { RouterPathType } from 'types';
 import { Blank } from '../../common';
 import { px } from '../../../utils';
-import { homeMenuBar, RouterPath } from '../../../constants';
+import { homeMenuBar, RouterPath, ScreenBreakPoint } from '../../../constants';
+
+
 
 interface MenuBarIcon {
   image: string;
@@ -16,6 +18,7 @@ const iconlist: Map<string, MenuBarIcon> = new Map()
   .set('주차요금', { image: homeMenuBar.price, route: RouterPath.Price })
   .set('예약하기', { image: homeMenuBar.reservation, route: RouterPath.Reservation });
   
+const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 
 interface Props {
   onClick: (destiny: RouterPathType) => void;
@@ -28,14 +31,14 @@ export const MenuBar: FC<Props> = ({ onClick }) => {
     <Container>
       {icons.map(([title, { image, route }]) => {
         return (
-          <div key={title}>
-            <IconContainer onClick={() => onClick(route)}>
+          <MenuTab key={title} onClick={() => onClick(route)}>
+            <IconContainer>
               <Icon src={image} />
-              <Blank height={5} />
-              <IconTitle>{title}</IconTitle>
             </IconContainer>
-          </div>
-        )
+            <Blank height={1.3} maxHeight={6} />
+            <MenuTitle>{title}</MenuTitle>
+          </MenuTab>
+        );
       })}
     </Container>
   )
@@ -44,29 +47,47 @@ export const MenuBar: FC<Props> = ({ onClick }) => {
 const Container = styled.div`
   background-image: url(${homeMenuBar.background});
   width: 100%;
-  height: ${px(70)};
+  height: 24vw;
+  max-height: 90px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-`;
 
-const Icon = styled.img`
-  width: ${px(35)};
-  height: ${px(35)};
+  @media only screen and (${ Desktop }) {
+    max-height: 100px;
+  }
 `;
 
 const IconContainer = styled.div`
+  width: 12vw;
+  height: 12vw;
+
+  @media only screen and (${ MobileS }) {
+    max-width: 50px;
+    max-height: 50px;
+  }
+`;
+
+const MenuTitle = styled.div`
+  font-size: 4vw;
+  color: white;
+  font-weight: 700;
+
+  @media only screen and (${ MobileS }) {
+    font-size: 13px;
+  }
+`;
+
+
+const MenuTab = styled.div`
   display: flex;
   flex-direction: column;
-  
-
   align-items: center;
 `;
 
-const IconTitle = styled.div`
-  font-size: ${px(14)};
-  color: white;
-  font-weight: 700;
+const Icon = styled.img`
+  width: 100%;
+  height: 100%;
 `;

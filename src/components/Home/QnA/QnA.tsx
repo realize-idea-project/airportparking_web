@@ -4,6 +4,7 @@ import { RouterPathType } from 'types';
 import { Blank } from '../../common';
 import { QnAHeader } from './QnAHeader';
 import { QnACard } from './QnACard';
+import { HomeContentsContainer } from '../styled';
 
 
 const getQnADate = () => {
@@ -52,7 +53,7 @@ interface Props {
 
 export const QnA: FC<Props> = ({ onClickShowMore, onClickCard }) => {
   return (
-    <Container>
+    <HomeContentsContainer white >
       <QnAHeader onClickShowMore={onClickShowMore}/>
       <Blank height={5} maxHeight={30} />
       <CardContainer>
@@ -70,13 +71,10 @@ export const QnA: FC<Props> = ({ onClickShowMore, onClickCard }) => {
           })
         }
       </CardContainer>
-    </Container>
+      <Blank height={10} maxHeight={40} />
+    </HomeContentsContainer>
   );
 }
-
-const Container = styled.div`
-  background-color: white;
-`;
 
 const CardContainer = styled.div`
   display: flex;

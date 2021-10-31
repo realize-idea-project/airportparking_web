@@ -11,4 +11,5 @@ export const color = {
   primarySkyblue: '#23b3ff',
   gray: '#bbbbbb',
   black: '#000000',
+  red: '#d3262d',
 };

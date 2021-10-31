@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { RouterPathType } from 'types';
-import { Blank } from '../../common';
+import { Blank, CalendarAndDate } from '../../common';
 import { px } from '../../../utils';
 import { RouterPath , images, ScreenBreakPoint } from '../../../constants';
+
 
 interface Props {
   bgColor: string;
@@ -24,11 +25,12 @@ export const QnACard: FC<Props> = ({ bgColor, question, questionDate, onClick })
         <QnA>
           {question}
         </QnA>
-        <DateContainer>
+        <CalendarAndDate date={questionDate} />
+        {/* <DateContainer>
           <CalendarIcon src={images.calendarIcon} />
           <Blank width={3} />
           <Date>{questionDate}</Date>
-        </DateContainer>
+        </DateContainer> */}
       </QnAContainer>
     </Container>
   );

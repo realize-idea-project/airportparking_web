@@ -1,0 +1,1 @@
+export { HomeContentsContainer } from './styled';

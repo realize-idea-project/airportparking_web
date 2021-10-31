@@ -24,7 +24,7 @@ export const MainCarousel: FC<Props> = ({ imagelist }) => {
   };
 
   return (
-    <>
+    <Container>
       <ContactCard />
       <CustomSlider {...settings} >
         {
@@ -37,10 +37,14 @@ export const MainCarousel: FC<Props> = ({ imagelist }) => {
           })
         }
       </CustomSlider>
-    </>
+    </Container>
   );
 };
 
+const Container = styled.div`
+  position: relative;
+  border: 5px solid red;
+`;
 
 const CustomSlider = styled(Slider)`
   position: relative;
@@ -62,27 +66,27 @@ const CustomSlider = styled(Slider)`
     z-index: 1;
 
     @media only screen and (${ MobileXS }) {
-      bottom: 6vw;
+      bottom: 3vw;
     }
 
     @media only screen and (${ MobileS }) {
-      bottom: 7vw;
+      bottom: 3.5vw;
     }
 
     @media only screen and (${ MobileM }) {
-      bottom: 9vw;
+      bottom: 3.5vw;
     }
 
     @media only screen and (${ MobileL }) {
-      bottom: 7vw;
+      bottom: 3.5vw;
     }
 
     @media only screen and (${ PadS }) {
-      bottom: 6.5vw;
+      bottom: 4vw;
     }
 
     @media only screen and (${ Desktop }) {
-      bottom: 7.5vw;
+      bottom: 4.5vw;
     }
   }
 
@@ -94,11 +98,19 @@ const CustomSlider = styled(Slider)`
     }
 
     @media only screen and (${ MobileS }) {
-      font-size: 3vw;
+      font-size: 2.5vw;
     }
 
     @media only screen and (${ MobileM }) {
-      font-size: 2vw;
+      font-size: 2.5vw;
+    }
+
+    @media only screen and (${ PadS }) {
+      bottom: 2vw;
+    }
+
+    @media only screen and (${ Desktop }) {
+      font-size: 1.5vw;
     }
   }
 

@@ -40,27 +40,27 @@ const ContactContainer = styled.div`
   left: 4.5vw;
 
   @media only screen and (${ MobileXS }) {
-    bottom: 16vw;
+    bottom: 2vw;
   }
 
   @media only screen and (${ MobileS }) {
-    bottom: 14vw;
+    bottom: 2vw;
   }
 
   @media only screen and (${ MobileM }) {
-    bottom: 12vw;
+    bottom: 2vw;
   }
 
   @media only screen and (${ MobileL }) {
-    bottom: 10vw;
+    bottom: 2vw;
   }
 
   @media only screen and (${ PadS }) {
-    bottom: 8vw;
+    bottom: 2vw;
   }
 
   @media only screen and (${ Desktop }) {
-    bottom: 8vw;
+    bottom: 2vw;
   }
 `;
 

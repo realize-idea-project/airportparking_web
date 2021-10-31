@@ -23,8 +23,8 @@ export const Home = withLayout(() => {
     <>
       <PageContainer>
         <MainCarousel imagelist={mainImageList}/>
-        {/* <MenuBar onClick={moveTo} />
-        <ContentsContainer>
+        <MenuBar onClick={moveTo} />
+        {/* <ContentsContainer>
           <QnA  onClickCard={moveTo} onClickShowMore={moveTo} />
         </ContentsContainer> */}
       </PageContainer>

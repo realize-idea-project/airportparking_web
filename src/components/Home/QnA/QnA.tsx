@@ -54,7 +54,7 @@ export const QnA: FC<Props> = ({ onClickShowMore, onClickCard }) => {
   return (
     <Container>
       <QnAHeader onClickShowMore={onClickShowMore}/>
-      <Blank height={15} />
+      <Blank height={5} maxHeight={30} />
       <CardContainer>
         {
           cardContents.map(({id, question, questionDate, backgroundColor}) => {
@@ -70,8 +70,6 @@ export const QnA: FC<Props> = ({ onClickShowMore, onClickCard }) => {
           })
         }
       </CardContainer>
-
-
     </Container>
   );
 }

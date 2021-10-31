@@ -105,7 +105,7 @@ const CustomSlider = styled(Slider)`
     }
 
     @media only screen and (${ PadS }) {
-      bottom: 2vw;
+      font-size: 2vw;
     }
 
     @media only screen and (${ Desktop }) {

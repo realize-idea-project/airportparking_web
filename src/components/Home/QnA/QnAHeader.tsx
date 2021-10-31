@@ -25,11 +25,13 @@ const Container = styled.div``;
 const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: ${px(20)} ${px(10)};
+  padding: 6vw 3vw 3vw 3vw;
+
+
 `;
 
 const Title = styled.div`
-  font-size: ${px(20)};
+  font-size: 6.5vw;
   color: #8a0026;
   font-weight: 800;
 `;
@@ -40,9 +42,10 @@ const Separator = styled.div`
 `;
 
 const ShowMore = styled.div`
-  font-size: ${px(14)};
+  font-size: 4vw;
   color: gray;
-  padding-top: ${px(10)};
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: flex-end;
 `;

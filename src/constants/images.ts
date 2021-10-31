@@ -4,6 +4,7 @@ export const images = {
   calendarIcon: `${process.env.PUBLIC_URL}/assets/common/calendar_icon.png`,
   fullLogo: `${process.env.PUBLIC_URL}/assets/common/full_logo.png`,
   imgLogo: `${process.env.PUBLIC_URL}/assets/common/img_logo.png`,
+  plusIcon: `${process.env.PUBLIC_URL}/assets/common/plus_icon.png`,
 };
 
 export const homeImages = {

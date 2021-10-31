@@ -4,10 +4,8 @@ import { useHistory } from 'react-router';
 import { RouterPathType } from 'types';
 import { withLayout } from '../../shared';
 import { MainCarousel, MenuBar, QnA } from '../../components/Home';
-import { PageContainer, Header } from '../../components/common';
+import { PageContainer } from '../../components/common';
 import { homeImages } from '../../constants';
-import { px, } from '../../utils';
-
 
 
 export const Home = withLayout(() => {
@@ -24,15 +22,14 @@ export const Home = withLayout(() => {
       <PageContainer>
         <MainCarousel imagelist={mainImageList}/>
         <MenuBar onClick={moveTo} />
-        {/* <ContentsContainer>
+        <ContentsContainer>
           <QnA  onClickCard={moveTo} onClickShowMore={moveTo} />
-        </ContentsContainer> */}
+        </ContentsContainer>
       </PageContainer>
     </>
   );
 });
 
 const ContentsContainer = styled.div`
-  padding: 0 ${px(10)};
-  
+  padding: 0 3vw;
 `;

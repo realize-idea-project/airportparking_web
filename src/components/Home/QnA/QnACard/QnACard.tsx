@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { RouterPathType } from 'types';
-import { Blank, CalendarAndDate } from '../../common';
-import { px } from '../../../utils';
-import { RouterPath , images, ScreenBreakPoint } from '../../../constants';
+import { RouterPath , images, ScreenBreakPoint } from '../../../../constants';
+import { CalendarAndDate } from './CalendarAndDate';
 
 
 interface Props {
@@ -78,20 +77,3 @@ const Qmark = styled.div`
   }
 `;
 
-const DateContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-  justify-content: center;
-`;
-
-const CalendarIcon = styled.img`
-  width: 6vw;
-  height: 6vw;
-`;
-
-const Date = styled.div`
-  font-size: 5vw;
-  padding-top: 1vw;
-`;

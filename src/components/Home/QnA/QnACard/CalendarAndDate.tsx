@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Blank } from '../Blank';
-import { images } from '../../../constants';
+import { Blank } from '../../../common';
+import { images } from '../../../../constants';
 
 interface Props {
   date: string;

@@ -2,9 +2,10 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { RouterPathType } from 'types';
 import { Blank } from '../../common';
+import { HomeContentsContainer } from '../styled';
+
 import { QnAHeader } from './QnAHeader';
 import { QnACard } from './QnACard';
-import { HomeContentsContainer } from '../styled';
 
 
 const getQnADate = () => {

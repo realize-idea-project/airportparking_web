@@ -1,2 +1,2 @@
 
-export type ReservationStatus = 'reserved' | 'passBack';
+export type ReservationStatus = 'reserved' | 'finished' | 'applied';

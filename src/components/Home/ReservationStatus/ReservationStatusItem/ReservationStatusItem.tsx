@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { color } from '../../../../constants'
 
-
 import { DateSection } from './DateSection';
 import { StatusSection } from './StatusSection';
 import { CalendarSection } from './CalendarSection';
+import { ReservationStatus } from '../types';
 
 const flexProportion = {
   dateSection: 2,
@@ -13,22 +13,58 @@ const flexProportion = {
   calendarSection: 4,
 };
 
-export const ReservationStatusItem = () => {
+interface StatusText {
+  text: string;
+  color: string;
+}
+
+const statusTextBy: Record<ReservationStatus, StatusText> = {
+  reserved: { text: '예약완료', color: 'green' },
+  finished: { text: '출차완료', color: 'red' },
+  applied: {text: '예약신청', color: 'black' },
+};
+
+interface Props {
+  reservationTimestamp: string;
+  guestName: string;
+  plateNumber: number;
+  reservationStatus: ReservationStatus;
+  dateTo: string;
+  dateFrom: string;
+}
+
+export const ReservationStatusItem: FC<Props> = ({
+  reservationTimestamp,
+  guestName,
+  plateNumber,
+  reservationStatus,
+  dateTo,
+  dateFrom,
+}) => {
+  const [_, month, date] = reservationTimestamp.split('-');
+
+  const securedName = `${guestName[0]}**`
+  const securedPlateNumber = `${plateNumber.toString().slice(0,2)}**`;
+  const reservationText = statusTextBy[reservationStatus].text;
+
+
   return (
     <ItemContainer >
       <DateSection
         flexProportion={flexProportion.dateSection}
-        month='10'
-        date='11'
+        month={month}
+        date={date}
       />
       <StatusSection
         flexProportion={flexProportion.statusSection}
-        text='김**님의 45** 예약약완료입니다.'
-        status='reserved'
+        name={securedName}
+        plateNumber={securedPlateNumber}
+        statusText={reservationText}
+        textColor={statusTextBy[reservationStatus].color}
       />
       <CalendarSection
         flexProportion={flexProportion.calendarSection}
-        calendarDate='2021-11-11'
+        calendarDate={dateTo}
       />
     </ItemContainer>
   );
@@ -41,6 +77,8 @@ const ItemContainer = styled.div`
   border: 2px solid ${color.gray_150};
   padding: 1vw;
 `;
+
+
 
 
 

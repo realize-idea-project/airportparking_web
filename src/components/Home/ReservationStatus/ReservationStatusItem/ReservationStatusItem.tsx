@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { color } from '../../../../constants'
+import { color , RouterPath } from '../../../../constants'
+import { RouterPathType } from '../../../../types';
 
+import { ReservationStatus } from '../types';
 import { DateSection } from './DateSection';
 import { StatusSection } from './StatusSection';
 import { CalendarSection } from './CalendarSection';
-import { ReservationStatus } from '../types';
 
 const flexProportion = {
   dateSection: 2,
@@ -31,6 +32,7 @@ interface Props {
   reservationStatus: ReservationStatus;
   dateTo: string;
   dateFrom: string;
+  onClickItem: (path: RouterPathType) => void;
 }
 
 export const ReservationStatusItem: FC<Props> = ({
@@ -40,6 +42,7 @@ export const ReservationStatusItem: FC<Props> = ({
   reservationStatus,
   dateTo,
   dateFrom,
+  onClickItem,
 }) => {
   const [_, month, date] = reservationTimestamp.split('-');
 
@@ -49,7 +52,7 @@ export const ReservationStatusItem: FC<Props> = ({
 
 
   return (
-    <ItemContainer >
+    <ItemContainer onClick={() => onClickItem(RouterPath.ReservationStatus)}>
       <DateSection
         flexProportion={flexProportion.dateSection}
         month={month}

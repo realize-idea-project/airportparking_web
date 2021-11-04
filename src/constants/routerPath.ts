@@ -1,6 +1,6 @@
 import { RouterPathType } from '../types';
 
-type Route = 'Home' | 'AboutUs' | 'Reservation' | 'Instruction' | 'Price' | 'Facility' | 'ContactUs' | 'QnA';
+type Route = 'Home' | 'AboutUs' | 'Reservation' | 'Instruction' | 'Price' | 'Facility' | 'ContactUs' | 'QnA' | 'ReservationStatus';
 
 export const RouterPath: Record<Route, RouterPathType> = {
   Home: '/',
@@ -11,4 +11,5 @@ export const RouterPath: Record<Route, RouterPathType> = {
   Facility: '/facility',
   ContactUs: '/contactUs',
   QnA: '/QnA',
+  ReservationStatus: '/status',
 };

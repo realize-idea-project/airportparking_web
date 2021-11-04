@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React, { FC, useState, useEffect } from 'react';
 import _ from 'lodash';
-import { AirportType } from '../../../types';
+import { AirportType, RouterPathType } from '../../../types';
 import { Blank } from '../../common';
 import { HomeContentsContainer } from '../styled';
 import { ReservationStatusHeader } from './ReservationStatusHeader';
@@ -10,8 +10,8 @@ import { dummyCustomers, CustomerType } from './dummyCustomers';
 
 interface Props {
   airportType?: AirportType;
-  onClickItem?: () => void;
-  onClickShowMore?: () => void;
+  onClickItem: (path: RouterPathType) => void;
+  onClickShowMore: (path: RouterPathType) => void;
 }
 
 export const ReservationStatus: FC<Props> = ({ airportType = 'Gimpo', onClickItem, onClickShowMore }) => {
@@ -30,7 +30,7 @@ export const ReservationStatus: FC<Props> = ({ airportType = 'Gimpo', onClickIte
   return (
     <HomeContentsContainer>
       <Blank height={5} />
-      <ReservationStatusHeader subTitle={subTitle} />
+      <ReservationStatusHeader subTitle={subTitle} onClickShowMore={onClickShowMore}/>
       <Blank height={3} />
       {
         customers.map((customer, index) => {
@@ -45,6 +45,7 @@ export const ReservationStatus: FC<Props> = ({ airportType = 'Gimpo', onClickIte
                 reservationTimestamp={reservationTimestamp}
                 dateFrom={dateFrom}
                 dateTo={dateTo}
+                onClickItem={onClickItem}
               />
               { index !== customers.length - 1 ? <Blank height={3} /> : null }
             </>

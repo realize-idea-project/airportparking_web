@@ -24,7 +24,7 @@ export const Home = withLayout(() => {
         <MenuBar onClick={moveTo} />
         <ContentsContainer>
           <QnA  onClickCard={moveTo} onClickShowMore={moveTo} />
-          <ReservationStatus />
+          <ReservationStatus onClickItem={moveTo} onClickShowMore={moveTo}/>
         </ContentsContainer>
       </PageContainer>
     </>

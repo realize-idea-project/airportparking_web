@@ -1,14 +1,17 @@
 /* eslint-disable react/require-default-props */
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { images } from '../../../constants'
+import { RouterPathType } from 'types';
+import { images, RouterPath } from '../../../constants'
 import { Blank } from '../../common';
+
 
 interface Props {
   subTitle: string;
+  onClickShowMore: (path: RouterPathType) => void;
 }
 
-export const ReservationStatusHeader: FC<Props> = ({ subTitle }) => {
+export const ReservationStatusHeader: FC<Props> = ({ subTitle, onClickShowMore  }) => {
   return (
     <Container>
       <TitleContainer>
@@ -16,7 +19,7 @@ export const ReservationStatusHeader: FC<Props> = ({ subTitle }) => {
         <Blank height={0.5} />
         <Title>RESERVATION STATUS</Title>
       </TitleContainer>
-      <ShowMoreIconContainer>
+      <ShowMoreIconContainer onClick={() => onClickShowMore(RouterPath.ReservationStatus)}>
         <ShowMoreIcon src={images.plusIcon} />
       </ShowMoreIconContainer>
     </Container>

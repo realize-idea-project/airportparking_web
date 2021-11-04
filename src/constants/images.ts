@@ -5,6 +5,7 @@ export const images = {
   fullLogo: `${process.env.PUBLIC_URL}/assets/common/full_logo.png`,
   imgLogo: `${process.env.PUBLIC_URL}/assets/common/img_logo.png`,
   plusIcon: `${process.env.PUBLIC_URL}/assets/common/plus_icon.png`,
+  meaninglessText: `${process.env.PUBLIC_URL}/assets/common/meaningless_text.png`,
 };
 
 export const homeImages = {
@@ -19,4 +20,12 @@ export const homeMenuBar = {
   info: `${process.env.PUBLIC_URL}/assets/Home/menubar/menubar_info.png`,
   price: `${process.env.PUBLIC_URL}/assets/Home/menubar/menubar_price.png`,
   reservation: `${process.env.PUBLIC_URL}/assets/Home/menubar/menubar_online.png`,
+};
+
+export const homeFacility = {
+  parkinglot1: `${process.env.PUBLIC_URL}/assets/Home/facility/parkinglot1.jpeg`,
+  parkinglot2: `${process.env.PUBLIC_URL}/assets/Home/facility/parkinglot2.jpeg`,
+  parkinglot3: `${process.env.PUBLIC_URL}/assets/Home/facility/parkinglot3.jpeg`,
+  parkinglot4: `${process.env.PUBLIC_URL}/assets/Home/facility/parkinglot4.jpeg`,
+  parkinglot5: `${process.env.PUBLIC_URL}/assets/Home/facility/parkinglot5.jpeg`,
 };

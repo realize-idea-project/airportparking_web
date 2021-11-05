@@ -1,11 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { RouterPathType } from 'types';
-import { px } from '../../../utils';
-import { RouterPath } from '../../../constants';
 
 interface Props {
-  onClickShowMore: (path: RouterPathType) => void;
+  onClickShowMore: () => void;
 }
 
 export const QnAHeader: FC<Props> = ({ onClickShowMore }) => {
@@ -13,7 +10,7 @@ export const QnAHeader: FC<Props> = ({ onClickShowMore }) => {
     <Container>
       <TitleContainer>
         <Title>자주하는 질문</Title>
-        <ShowMore onClick={() => onClickShowMore(RouterPath.QnA)}>더보기</ShowMore>
+        <ShowMore onClick={onClickShowMore}>더보기</ShowMore>
       </TitleContainer>
       <Separator />
     </Container>

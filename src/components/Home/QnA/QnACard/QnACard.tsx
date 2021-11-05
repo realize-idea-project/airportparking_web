@@ -9,14 +9,14 @@ interface Props {
   bgColor: string;
   question: string;
   questionDate: string;
-  onClick: (path: RouterPathType) => void;
+  onClick: () => void;
 }
 
 const { MobileL, PadS } = ScreenBreakPoint;
 
 export const QnACard: FC<Props> = ({ bgColor, question, questionDate, onClick }) => {
   return (
-    <Container bgColor={bgColor} onClick={() => onClick(RouterPath.QnA)}>
+    <Container bgColor={bgColor} onClick={onClick}>
       <div>
         <Qmark />
       </div>
@@ -25,11 +25,6 @@ export const QnACard: FC<Props> = ({ bgColor, question, questionDate, onClick })
           {question}
         </QnA>
         <CalendarAndDate date={questionDate} />
-        {/* <DateContainer>
-          <CalendarIcon src={images.calendarIcon} />
-          <Blank width={3} />
-          <Date>{questionDate}</Date>
-        </DateContainer> */}
       </QnAContainer>
     </Container>
   );

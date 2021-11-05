@@ -21,7 +21,7 @@ const iconlist: Map<string, MenuBarIcon> = new Map()
 const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 
 interface Props {
-  onClick: (destiny: RouterPathType) => void;
+  onClick: (path: RouterPathType) => () => void;
 }
 
 export const MenuBar: FC<Props> = ({ onClick }) => {
@@ -31,7 +31,7 @@ export const MenuBar: FC<Props> = ({ onClick }) => {
     <Container>
       {icons.map(([title, { image, route }]) => {
         return (
-          <MenuTab key={title} onClick={() => onClick(route)}>
+          <MenuTab key={title} onClick={onClick(route)}>
             <IconContainer>
               <Icon src={image} />
             </IconContainer>

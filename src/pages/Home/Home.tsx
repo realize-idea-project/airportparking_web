@@ -4,17 +4,18 @@ import { useHistory } from 'react-router';
 import { RouterPathType } from '../../types';
 import { withLayout } from '../../shared';
 import { PageContainer } from '../../components/common';
-import { homeImages } from '../../constants';
+import { homeImages, homeFacility } from '../../constants';
 
-import { MainCarousel, MenuBar, QnA, ReservationStatus, Facility } from '../../components/Home';
+import { MainCarousel, MenuBar, QnA, ReservationStatus, Facility, Location } from '../../components/Home';
 
 
 export const Home = withLayout(() => {
   const history = useHistory();
 
   const mainImageList = Object.values(homeImages);
+  const parkinglotImageList = Object.values(homeFacility);
 
-  const moveTo = (path: RouterPathType) =>{
+  const moveTo = (path: RouterPathType) => () => {
     history.push(path)
   };
 
@@ -26,7 +27,8 @@ export const Home = withLayout(() => {
         <ContentsContainer>
           <QnA  onClickCard={moveTo} onClickShowMore={moveTo} />
           <ReservationStatus onClickItem={moveTo} onClickShowMore={moveTo}/>
-          <Facility />
+          <Facility imagelist={parkinglotImageList}  onClickShowMore={moveTo}/>
+          <Location onClickShowMore={moveTo} />
         </ContentsContainer>
       </PageContainer>
     </>
@@ -34,5 +36,5 @@ export const Home = withLayout(() => {
 });
 
 const ContentsContainer = styled.div`
-  /* padding: 0 3vw; */
+  border: 1px solid pink;
 `;

@@ -32,7 +32,7 @@ interface Props {
   reservationStatus: ReservationStatus;
   dateTo: string;
   dateFrom: string;
-  onClickItem: (path: RouterPathType) => void;
+  onClickItem: () => void;
 }
 
 export const ReservationStatusItem: FC<Props> = ({
@@ -52,7 +52,7 @@ export const ReservationStatusItem: FC<Props> = ({
 
 
   return (
-    <ItemContainer onClick={() => onClickItem(RouterPath.ReservationStatus)}>
+    <ItemContainer onClick={onClickItem}>
       <DateSection
         flexProportion={flexProportion.dateSection}
         month={month}

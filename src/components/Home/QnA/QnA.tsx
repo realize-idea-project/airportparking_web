@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { RouterPathType } from 'types';
+import { RouterPathType } from '../../../types';
+import { RouterPath } from '../../../constants';
 import { Blank } from '../../common';
-import { HomeContentsContainer } from '../styled';
+import { HomeContentsContainer } from '../common';
 
 import { QnAHeader } from './QnAHeader';
 import { QnACard } from './QnACard';
@@ -48,14 +49,14 @@ const cardContents = [
 ];
 
 interface Props {
-  onClickShowMore: (path: RouterPathType) => void;
-  onClickCard: (path: RouterPathType) => void;
+  onClickShowMore: (path: RouterPathType) => () => void;
+  onClickCard: (path: RouterPathType) => () => void;
 }
 
 export const QnA: FC<Props> = ({ onClickShowMore, onClickCard }) => {
   return (
     <HomeContentsContainer white >
-      <QnAHeader onClickShowMore={onClickShowMore}/>
+      <QnAHeader onClickShowMore={onClickShowMore(RouterPath.QnA)}/>
       <Blank height={5} maxHeight={30} />
       <CardContainer>
         {
@@ -66,7 +67,7 @@ export const QnA: FC<Props> = ({ onClickShowMore, onClickCard }) => {
                 question={question}
                 questionDate={questionDate}
                 bgColor={backgroundColor}
-                onClick={onClickCard}
+                onClick={onClickCard(RouterPath.QnA)}
               />
             );
           })

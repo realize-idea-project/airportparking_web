@@ -6,18 +6,19 @@ import { Blank } from '../../common';
 
 interface Props {
   subTitle: string;
-  onClickShowMore: (path: RouterPathType) => void;
+  title: string;
+  onClickShowMore: () => void;
 }
 
-export const FacilityHeader: FC<Props> = ({ subTitle, onClickShowMore }) => {
+export const HomeContentHeader: FC<Props> = ({ subTitle, title, onClickShowMore }) => {
   return (
     <Container>
       <TitleContainer>
         <SubTitle>{subTitle}</SubTitle>
         <Blank height={0.5} />
-        <Title>Parkinglot Introduction</Title>
+        <Title>{title}</Title>
       </TitleContainer>
-      <ShowMoreIconContainer onClick={() => onClickShowMore(RouterPath.Facility)}>
+      <ShowMoreIconContainer onClick={onClickShowMore}>
         <ShowMoreIcon src={images.plusIcon} />
       </ShowMoreIconContainer>
     </Container>

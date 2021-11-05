@@ -1,1 +1,1 @@
-export { HomeContentsContainer } from './styled';
+export { HomeContentsContainer, HomeFacilityContainer } from './containers';

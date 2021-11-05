@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
-import { RouterPathType } from 'types';
+import { RouterPathType } from '../../types';
 import { withLayout } from '../../shared';
-import { MainCarousel, MenuBar, QnA, ReservationStatus } from '../../components/Home';
 import { PageContainer } from '../../components/common';
 import { homeImages } from '../../constants';
+
+import { MainCarousel, MenuBar, QnA, ReservationStatus, Facility } from '../../components/Home';
 
 
 export const Home = withLayout(() => {
@@ -25,6 +26,7 @@ export const Home = withLayout(() => {
         <ContentsContainer>
           <QnA  onClickCard={moveTo} onClickShowMore={moveTo} />
           <ReservationStatus onClickItem={moveTo} onClickShowMore={moveTo}/>
+          <Facility />
         </ContentsContainer>
       </PageContainer>
     </>

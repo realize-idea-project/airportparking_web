@@ -4,6 +4,8 @@ import { RouterPath } from '../../../constants';
 import { Blank } from '../../common';
 import { HomeContentsContainer, HomeContentHeader } from '../common';
 
+import { CustomMap } from './CustomMap';
+
 interface Props {
   onClickShowMore: (path: RouterPathType) => () => void;
 }
@@ -18,6 +20,7 @@ export const Location: FC<Props> = ({ onClickShowMore }) => {
         onClickShowMore={onClickShowMore(RouterPath.Instruction)}
       />
       <Blank height={3} />
+      <CustomMap />
       <Blank height={8} />
     </HomeContentsContainer>
   );

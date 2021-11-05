@@ -37,7 +37,7 @@ export const ReservationStatus: FC<Props> = ({ airportType = 'Gimpo', onClickIte
           const { name, plateNumber, reservationStatus, reservationTimestamp, dateFrom, dateTo } = customer;
 
           return (
-            <>
+            <div key={name}>
               <ReservationStatusItem
                 guestName={name}
                 plateNumber={plateNumber}
@@ -48,7 +48,7 @@ export const ReservationStatus: FC<Props> = ({ airportType = 'Gimpo', onClickIte
                 onClickItem={onClickItem(RouterPath.ReservationStatus)}
               />
               { index !== customers.length - 1 ? <Blank height={3} /> : null }
-            </>
+            </div>
           );
         })
       }

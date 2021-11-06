@@ -2,18 +2,16 @@ import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import { generateMap, generateMarker } from './helpers';
 
-
 interface Props {
   lat: number;
   lng: number;
 }
 
-export const CustomMap: FC<Props> = ({ lat, lng }) => {
+export const DynamicNaverMap: FC<Props> = ({ lat, lng }) => {
 
   useEffect(() => {
     const map = generateMap(lat, lng);
     generateMarker(map, lat, lng);
-    window.removeEventListener("wheel", () => null, false)
   }, []);
 
   return (

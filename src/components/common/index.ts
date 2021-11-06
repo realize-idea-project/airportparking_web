@@ -3,4 +3,4 @@ export { Carousel } from './Carousel';
 export { Header } from './Header'
 export { Footer } from './Footer';
 export { PageContainer } from './PageContainer';
-export { CustomMap } from './CustomMap';
+export { DynamicNaverMap } from './CustomMap';

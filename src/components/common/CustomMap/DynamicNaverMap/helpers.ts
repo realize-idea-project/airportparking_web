@@ -1,6 +1,6 @@
 import React from 'react';
 
-const { LatLng, Map, Marker } = window.naver.maps;
+const { LatLng, Map, Marker, Event } = window.naver.maps;
 
 
 export const generateMap = (lat: number, long: number) => {
@@ -12,5 +12,7 @@ export const generateMap = (lat: number, long: number) => {
 
 export const generateMarker = (map: any, lat: number, long: number) => {
   const position = new LatLng(lat, long);
-  return new Marker({ position, map });
+  const marker = new Marker({ position, map });
+  
+  return marker;
 };

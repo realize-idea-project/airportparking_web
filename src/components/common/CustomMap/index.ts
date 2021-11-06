@@ -1,1 +1,1 @@
-export { CustomMap } from './CustomMap';
+export { DynamicNaverMap } from './DynamicNaverMap';

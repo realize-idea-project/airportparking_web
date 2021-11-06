@@ -28,5 +28,4 @@ const Container = styled.div``;
 const MapComponent = styled.div`
   width: 100%;
   height: 80vw;
-  border: 1px solid purple;
 `;

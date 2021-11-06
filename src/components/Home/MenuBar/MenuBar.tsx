@@ -13,11 +13,16 @@ interface MenuBarIcon {
 }
 
 const iconlist: Map<string, MenuBarIcon> = new Map()
-  .set('회사소개', { image: homeMenuBar.company, route: RouterPath.AboutUs })
-  .set('이용안내', { image:homeMenuBar.info, route: RouterPath.Instruction })
-  .set('주차요금', { image: homeMenuBar.price, route: RouterPath.Price })
+  .set('회사소개', { image: homeMenuBar.company, route: RouterPath.Home })
+  .set('이용안내', { image:homeMenuBar.info, route: RouterPath.Home })
+  .set('주차요금', { image: homeMenuBar.price, route: RouterPath.Home })
   .set('예약하기', { image: homeMenuBar.reservation, route: RouterPath.Reservation });
-  
+  // FIX-ROUTER
+  // .set('회사소개', { image: homeMenuBar.company, route: RouterPath.AboutUs })
+  // .set('이용안내', { image:homeMenuBar.info, route: RouterPath.Instruction })
+  // .set('주차요금', { image: homeMenuBar.price, route: RouterPath.Price })
+  // .set('예약하기', { image: homeMenuBar.reservation, route: RouterPath.Reservation });
+
 const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 
 interface Props {
@@ -85,6 +90,7 @@ const MenuTab = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 `;
 
 const Icon = styled.img`

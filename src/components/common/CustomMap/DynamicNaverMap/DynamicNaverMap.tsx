@@ -21,9 +21,12 @@ export const DynamicNaverMap: FC<Props> = ({ lat, lng }) => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const MapComponent = styled.div`
-  width: 100%;
-  height: 80vw;
+  width: 90%;
+  height: 70vw;
 `;

@@ -20,7 +20,9 @@ export const Facility: FC<Props> = ({ imagelist, onClickShowMore }) => {
       <HomeContentHeader
         subTitle='라라주차 김포 주차시설'
         title='PARKING FACILITY'
-        onClickShowMore={onClickShowMore(RouterPath.Facility)}
+        // FIX-ROUTER
+        // onClickShowMore={onClickShowMore(RouterPath.Facility)}
+        onClickShowMore={onClickShowMore(RouterPath.Home)}
       />
       <Blank height={3} />
       <FacilityCarousel imagelist={imagelist} />

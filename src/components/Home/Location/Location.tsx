@@ -22,7 +22,9 @@ export const Location: FC<Props> = ({ onClickShowMore }) => {
       <HomeContentHeader
         subTitle='주차장 위치'
         title='PARKING LOCATION'
-        onClickShowMore={onClickShowMore(RouterPath.Instruction)}
+        // FIX-ROUTER
+        // onClickShowMore={onClickShowMore(RouterPath.Instruction)}
+        onClickShowMore={onClickShowMore(RouterPath.Home)}
       />
       <Blank height={3} />
       <DynamicNaverMap lat={parkinglotLatitude} lng={parkinglotLongitude} />

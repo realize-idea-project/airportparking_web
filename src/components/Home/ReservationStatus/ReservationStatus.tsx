@@ -30,7 +30,13 @@ export const ReservationStatus: FC<Props> = ({ airportType = 'Gimpo', onClickIte
   return (
     <HomeContentsContainer>
       <Blank height={5} />
-      <HomeContentHeader subTitle={subTitle} title='RESERVATION STATUS' onClickShowMore={onClickShowMore(RouterPath.ReservationStatus)} />
+      <HomeContentHeader
+        subTitle={subTitle}
+        title='RESERVATION STATUS'
+        // FIX-ROUTER
+        // onClickShowMore={onClickShowMore(RouterPath.ReservationStatus)}
+        onClickShowMore={onClickShowMore(RouterPath.Home)}
+      />
       <Blank height={3} />
       {
         customers.map((customer, index) => {
@@ -45,7 +51,9 @@ export const ReservationStatus: FC<Props> = ({ airportType = 'Gimpo', onClickIte
                 reservationTimestamp={reservationTimestamp}
                 dateFrom={dateFrom}
                 dateTo={dateTo}
-                onClickItem={onClickItem(RouterPath.ReservationStatus)}
+                // FIX-ROUTER
+                // onClickItem={onClickItem(RouterPath.ReservationStatus)}
+                onClickItem={onClickItem(RouterPath.Home)}
               />
               { index !== customers.length - 1 ? <Blank height={3} /> : null }
             </div>

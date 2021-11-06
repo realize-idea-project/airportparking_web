@@ -56,7 +56,9 @@ interface Props {
 export const QnA: FC<Props> = ({ onClickShowMore, onClickCard }) => {
   return (
     <HomeContentsContainer white >
-      <QnAHeader onClickShowMore={onClickShowMore(RouterPath.QnA)}/>
+      {/* FIX-ROUTER */}
+      {/* <QnAHeader onClickShowMore={onClickShowMore(RouterPath.QnA)}/> */}
+      <QnAHeader onClickShowMore={onClickShowMore(RouterPath.Home)}/>
       <Blank height={5} maxHeight={30} />
       <CardContainer>
         {
@@ -67,7 +69,9 @@ export const QnA: FC<Props> = ({ onClickShowMore, onClickCard }) => {
                 question={question}
                 questionDate={questionDate}
                 bgColor={backgroundColor}
-                onClick={onClickCard(RouterPath.QnA)}
+                // FIX-ROUTER
+                // onClick={onClickCard(RouterPath.QnA)}
+                onClick={onClickCard(RouterPath.Home)}
               />
             );
           })

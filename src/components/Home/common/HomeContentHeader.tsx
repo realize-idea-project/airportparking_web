@@ -54,6 +54,8 @@ const ShowMoreIconContainer = styled.div`
   position: absolute;
   right: 1vw;
   bottom: 1vw;
+
+  cursor: pointer;
 `;
 
 const ShowMoreIcon = styled.img`

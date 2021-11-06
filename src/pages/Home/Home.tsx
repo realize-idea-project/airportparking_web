@@ -36,5 +36,4 @@ export const Home = withLayout(() => {
 });
 
 const ContentsContainer = styled.div`
-  border: 1px solid pink;
 `;

@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Blank } from '../../common';
-import { px } from '../../../utils';
 
 import { serviceUsePeriodOptions, currentYear, currentMonth, currentDate } from './selectOptions';
 
@@ -72,7 +71,7 @@ export const ServiceUsePeriodInput: FC<Props> = ({ title }) => {
 const FieldContainer = styled.div``;
 
 const FieldLabel = styled.div`
-  font-size: ${px(14)};
+  font-size: 4.5vw;
 `;
 
 const SelectorContainer = styled.div`

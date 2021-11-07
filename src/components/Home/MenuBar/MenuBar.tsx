@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { RouterPathType } from 'types';
 import { Blank } from '../../common';
-import { px } from '../../../utils';
 import { homeMenuBar, RouterPath, ScreenBreakPoint } from '../../../constants';
 
 

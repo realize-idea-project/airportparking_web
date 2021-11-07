@@ -1,1 +1,1 @@
-export { Blank, Carousel, Footer, Header, PageContainer } from './common';
+export { Blank, Footer, Header, PageContainer } from './common';

@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import styled from 'styled-components';
-import { ScreenBreakPoint } from '../constants';
-import { px } from '../utils';
 import { Header, Footer } from '../components';
 
 const withLayout = (Component: any) => {

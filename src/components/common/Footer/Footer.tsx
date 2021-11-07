@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { color, images } from '../../../constants';
+import {
+  companyName,
+  companyRegistrationNumber,
+  mainAddress,
+  subAddress,
+  workingHours,
+  reservationContact,
+  serviceContact,
+  copyright
+} from '../../../business';
+
 
 import { Blank } from '../Blank';
-
-
-const companyInfo1 = '상호명: 라라주차 / 사업자등록번호 : 814-99-00723';
-const companyAddress1 = '서울특별시 강서구 마곡중앙로 76, 지하5층';
-const companyAddress2 = '(마곡동, 힐스테이트에코 마곡역)';
-const workingHours = '업무시간 : AM 05시 ~ PM 23시 연중무휴';
-const contact1 = '예약문의: 010-6202-2114';
-const contact2 = '입출고: 010-2040-6634';
-const copyright = '©COPYRIGHT RARA PARKING SERVICE RIGHTS RESERVED.';
 
 export const Footer = () => {
   return (
@@ -23,15 +25,15 @@ export const Footer = () => {
       </LogoContainer>
       <Blank height={3} />
       <CompanyInfoContaier>
-        <FooterInfo>{companyInfo1}</FooterInfo>
+        <FooterInfo>{`상호명: ${companyName} / 사업자등록번호: ${companyRegistrationNumber}`}</FooterInfo>
         <Blank height={1.5} />
-        <FooterInfo>{companyAddress1}</FooterInfo>
-        <FooterInfo>{companyAddress2}</FooterInfo>
+        <FooterInfo>{`주소: ${mainAddress}`}</FooterInfo>
+        <FooterInfo>{subAddress}</FooterInfo>
         <Blank height={1.5} />
-        <FooterInfo>{workingHours}</FooterInfo>
+        <FooterInfo>{`업무시간: ${workingHours}`}</FooterInfo>
         <Blank height={1.5} />
-        <FooterInfo>{contact1}</FooterInfo>
-        <FooterInfo>{contact2}</FooterInfo>
+        <FooterInfo>{`예약문의: ${reservationContact}`}</FooterInfo>
+        <FooterInfo>{`입출고: ${serviceContact}`}</FooterInfo>
       </CompanyInfoContaier>
       <Blank height={6} />
       <Separator />

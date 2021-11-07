@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { reservationContact, serviceContact } from '../../../business';
 import { Blank } from '../../common';
 import { ScreenBreakPoint } from '../../../constants';
 
@@ -15,9 +16,9 @@ export const ContactCard: FC = () => {
         <Blank height={1} />
         <Separator />
         <Blank height={4} />
-        <ContactText>예약문의 : <ContactYellow>010-6202-2114</ContactYellow></ContactText>
+        <ContactText>예약문의 : <ContactYellow>{reservationContact}</ContactYellow></ContactText>
         <Blank height={2} />
-        <ContactText>입출고 : <ContactYellow>010-2040-6634</ContactYellow></ContactText>
+        <ContactText>입출고 : <ContactYellow>{serviceContact}</ContactYellow></ContactText>
       </ContactContainer>
     </Container>
   );

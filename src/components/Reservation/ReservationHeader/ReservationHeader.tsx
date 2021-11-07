@@ -19,7 +19,7 @@ export const ReservationHeader: FC<Props> = ({ airportType }) => {
   return (
     <Container>
       <Title>{headerByAirport[airportType]}</Title>
-      <Blank height={5} />
+      <Blank height={1} />
       <SubTitle>RARA Airport Parking Service</SubTitle>
     </Container>
   )
@@ -31,13 +31,13 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: ${px(120)};
+  height: 25vw;
 `;
 
 const Title = styled.div`
-  font-size: ${px(20)};
+  font-size: 6vw;
 `;
 
 const SubTitle = styled.div`
-  font-size: ${px(14)};
+  font-size: 4.5vw;
 `;

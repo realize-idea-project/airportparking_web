@@ -16,32 +16,34 @@ const inputTitles = {
 export const ServiceUsePeriod = () => {
   return (
     <Container>
-      <Blank height={10} />
+      <Blank height={5} />
       <NotiText>※ 24시간 기준으로 입력해 주세요.</NotiText>
-      <Blank height={20} />
-      <ServiceUsePeriodInput title={inputTitles.departure}/>
-      <Blank height={20} />
-      <ServiceUsePeriodInput title={inputTitles.arrival}/>
-      <Blank height={20} />
+      <Blank height={5} />
+      <>
+        <ServiceUsePeriodInput title={inputTitles.departure}/>
+        <Blank height={5} />
+        <ServiceUsePeriodInput title={inputTitles.arrival}/>
+      </>
+      <Blank height={5} />
       <Notifications />
-      <Blank height={20} />
-      <CalcuateButton>실시간 요금 계산</CalcuateButton>
-      <Blank height={10} />
+      <Blank height={5} />
+      <CalculateButton>실시간 요금 계산</CalculateButton>
+      <Blank height={5} />
     </Container>
-  )
+  );
 };
 
 const Container = styled.div`
-  padding: 0 ${px(20)};
+  padding: 0 6vw;
   background-color: ${color.gray_100};
 `;
 
 const NotiText = styled.div`
   color: red;
-  font-size: ${px(13)};
+  font-size: 4vw;
 `;
 
-const CalcuateButton = styled.div`
+const CalculateButton = styled.div`
   color: white;
   background-color: black;
   padding: ${px(10)} 0;

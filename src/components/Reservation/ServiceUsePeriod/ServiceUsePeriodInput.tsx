@@ -13,7 +13,7 @@ export const ServiceUsePeriodInput: FC<Props> = ({ title }) => {
   return (
     <FieldContainer>
     <FieldLabel>{title}</FieldLabel>
-    <Blank height={10} />
+    <Blank height={1.5} />
     <SelectorContainer>
       <select defaultValue={`${currentYear}년`}>
         {

@@ -4,29 +4,17 @@ import styled from 'styled-components';
 import { ScreenBreakPoint } from '../../constants';
 import { AirportType } from '../../types';
 import { withLayout } from '../../shared';
-import { px } from '../../utils';
+import { PageContainer } from '../../components/common';
 import { ReservationHeader, ServiceUsePeriod } from '../../components/Reservation';
 
 const GimpoAirport: AirportType = "Gimpo"
 
-const { MobileS, MobileM } = ScreenBreakPoint;
-
+// px REMOVE
 export const Reservation = withLayout(() => {
   return (
-    <Container>
+    <PageContainer>
       <ReservationHeader airportType={GimpoAirport}/>
       <ServiceUsePeriod />
-    </Container>
+    </PageContainer>
   );
 });
-
-const Container = styled.div`
-
-@media only screen and (${ MobileS }) {
-  padding-top: 50px;
-  }
-
-  @media only screen and (${ MobileM }) {
-    padding-top: 50px;
-  }
-`;

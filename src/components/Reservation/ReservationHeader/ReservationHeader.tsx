@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { AirportType } from '../../../types';
 import { Blank } from '../../common';
 
-import { px } from '../../../utils';
-
 interface Props {
   airportType: AirportType;
 }

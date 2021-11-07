@@ -1,71 +1,93 @@
 import React, { FC } from 'react';
+import dayjs from 'dayjs';
 import styled from 'styled-components';
+import { dateFormat } from '../../../constants';
+import { ChangeEvent } from '../../../types';
+import { getModifiedEvent } from '../../../utils';
 import { Blank } from '../../common';
 
-import { serviceUsePeriodOptions, currentYear, currentMonth, currentDate } from './selectOptions';
+import { FromToDateKey } from '../../../pages/Reservation/types';
+import { ymdhmList, getYmdhm } from './helpers';
 
 interface Props {
-  title: string
+  title: string;
+  ymdhm: string;
+  propertyName: FromToDateKey;
+  onChangeDate: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export const ServiceUsePeriodInput: FC<Props> = ({ title }) => {
+export const ServiceUsePeriodInput: FC<Props> = ({ title, ymdhm, propertyName, onChangeDate }) => {
+  const { selectedYear, selectedMonth, selectedDate, selectedHour, selectedMinute } = getYmdhm(ymdhm)
+
+  const changeYmdhs = (unitType: dayjs.UnitType) => (event: ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = unitType === 'month'
+      ? Number(event.target.value) - 1
+      : Number(event.target.value);
+
+    const newYmdhm = dayjs(ymdhm)
+      .set(unitType,selectedValue)
+      .format(dateFormat);
+
+    onChangeDate(getModifiedEvent(event, propertyName, newYmdhm));
+  };
+
   return (
     <FieldContainer>
-    <FieldLabel>{title}</FieldLabel>
-    <Blank height={1.5} />
-    <SelectorContainer>
-      <select defaultValue={`${currentYear}년`}>
-        {
-          serviceUsePeriodOptions.year.map((year) => (
-            <option value={year}>
-              {year}
-            </option>
-          ))
-        }
-      </select>
-      <Blank width={10} />
-      <select defaultValue={`${currentMonth + 1}월`}>
-        {
-          serviceUsePeriodOptions.month.map((month) => (
-            <option value={month}>
-              {month}
-            </option>
-          ))
-        }
-      </select>
-      <Blank width={10} />
-      <select defaultValue={`${currentDate}일`}>
-        {
-          serviceUsePeriodOptions.date.map((date) => (
-            <option value={date}>
-              {date}
-            </option>
-          ))
-        }
-      </select>
-      <Blank width={10} />
-      <select defaultValue='12시'>
-        {
-          serviceUsePeriodOptions.hour.map((hour) => (
-            <option value={hour}>
-              {hour}
-            </option>
-          ))
-        }
-      </select>
-      <Blank width={10} />
-      <select defaultValue='00분'>
-        {
-          serviceUsePeriodOptions.minute.map((minute) => (
-            <option value={minute}>
-              {minute}
-            </option>
-          ))
-        }
-      </select>
-    </SelectorContainer>
-  </FieldContainer>
-  )
+      <FieldLabel>{title}</FieldLabel>
+      <Blank height={2} />
+      <SelectorContainer>
+        <select value={selectedYear} onChange={changeYmdhs('year')} >
+          {
+            ymdhmList.year.map((year) => (
+              <option key={year} value={year}>
+                {`${year}년`}
+              </option>
+            ))
+          }
+        </select>
+       <Blank width={1} />
+        <select value={selectedMonth} onChange={changeYmdhs('month')} >
+          {
+            ymdhmList.month.map((month) => (
+              <option key={month} value={month}>
+                {`${month}월`}
+              </option>
+            ))
+          }
+        </select>
+        <Blank width={1} />
+        <select value={selectedDate} onChange={changeYmdhs('date')}>
+          {
+            ymdhmList.date.map((date) => (
+              <option key={date} value={date}>
+                  {`${date}일`}
+              </option>
+            ))
+          }
+        </select>
+        <Blank width={1} />
+        <select value={selectedHour} onChange={changeYmdhs('hour')}>
+          {
+            ymdhmList.hour.map((hour) => (
+              <option key={hour} value={hour}>
+                {`${hour}시`}
+              </option>
+            ))
+          }
+        </select>
+        <Blank width={1} />
+        <select value={selectedMinute} onChange={changeYmdhs('minute')}>
+          {
+            ymdhmList.minute.map((minute) => (
+              <option key={minute} value={minute}>
+                {`${minute}분`}
+              </option>
+            ))
+          }
+        </select>
+      </SelectorContainer>
+    </FieldContainer>
+  );
 };
 
 const FieldContainer = styled.div``;

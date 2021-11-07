@@ -1,31 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { AirportType } from '../../types';
+import { AirportType, ChangeEvent } from '../../types';
 import { withLayout } from '../../shared';
 import { color } from '../../constants';
-import { PageContainer, Blank } from '../../components/common';
-import { ReservationHeader, ServiceUsePeriod, Notifications } from '../../components/Reservation';
+import { PageContainer } from '../../components/common';
 
-const GimpoAirport: AirportType = "Gimpo"
+import { ReservationHeader, ServiceUsePeriod, PriceModal } from '../../components/Reservation';
+import { getInitailFromToDate } from './helpers';
 
-// px REMOVE
+const GimpoAirport: AirportType = "Gimpo";
+
 export const Reservation = withLayout(() => {
-  return (
-    <PageContainer>
-      <ReservationHeader airportType={GimpoAirport}/>
-      <GrayBackground>
-        <Blank height={5} />
-        <ServiceUsePeriod />
-        <Blank height={5} />
-        <Notifications />
-        <Blank height={5} />
-        <CalculateButton>실시간 요금 계산</CalculateButton>
-        <Blank height={5} />
-      </GrayBackground>
+  const [isPriceModalOpened, setIsPriceModalOpened] = useState(false);
+  const [frmoToDate, setFromToDate] = useState(getInitailFromToDate());
 
-      <Blank height={5} />
-    </PageContainer>
+  
+  const changeServiceUsePeriod = (event: ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setFromToDate((prev) => ({ ...prev, [name]: value }));
+  };
+
+  console.log('frmoToDate', frmoToDate)
+  return (
+    <>
+      <PageContainer>
+        <ReservationHeader airportType={GimpoAirport}/>
+        <ServiceUsePeriod
+          dateFromYmdhm={frmoToDate.dateFrom}
+          dateToYmdhm={frmoToDate.dateTo}
+          onChangeDate={changeServiceUsePeriod}
+        />
+      </PageContainer>
+      {isPriceModalOpened && <PriceModal />}
+    </>
   );
 });
 

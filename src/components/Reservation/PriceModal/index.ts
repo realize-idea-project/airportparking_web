@@ -1,0 +1,1 @@
+export { PriceModal } from './PriceModal';

@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Header, Footer } from '../components';
+import { Header, Footer } from '../components/common';
 
-const withLayout = (Component: any) => {
+const withLayout = (Component: FC) => {
   return (props: any) => {
     return (
       <Container>

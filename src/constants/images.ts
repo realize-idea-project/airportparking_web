@@ -6,6 +6,7 @@ export const images = {
   imgLogo: `${process.env.PUBLIC_URL}/assets/common/img_logo.png`,
   plusIcon: `${process.env.PUBLIC_URL}/assets/common/plus_icon.png`,
   meaninglessText: `${process.env.PUBLIC_URL}/assets/common/meaningless_text.png`,
+  closeButton: `${process.env.PUBLIC_URL}/assets/common/close_button.png`,
 };
 
 export const homeImages = {

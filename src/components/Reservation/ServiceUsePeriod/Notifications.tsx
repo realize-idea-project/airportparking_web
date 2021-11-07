@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Blank } from '../common';
+import { Blank } from '../../common';
 
 export const Notifications: FC = () => {
  return (

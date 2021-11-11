@@ -18,6 +18,8 @@ export const Reservation = withLayout(() => {
   
   const changeServiceUsePeriod = (event: ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
+    // if dateTo is earlier than dateFrom then alert!!
+    // delete code duplication in ServiceUsePeriodInput.tsx
     setFromToDate((prev) => ({ ...prev, [name]: value }));
   };
 

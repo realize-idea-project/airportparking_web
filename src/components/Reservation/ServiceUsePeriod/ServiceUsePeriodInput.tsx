@@ -36,7 +36,7 @@ export const ServiceUsePeriodInput: FC<Props> = ({ title, ymdhm, propertyName, o
       <FieldLabel>{title}</FieldLabel>
       <Blank height={2} />
       <SelectorContainer>
-        <select value={selectedYear} onChange={changeYmdhs('year')} >
+        <StyledSelect value={selectedYear} onChange={changeYmdhs('year')} >
           {
             ymdhmList.year.map((year) => (
               <option key={year} value={year}>
@@ -44,9 +44,9 @@ export const ServiceUsePeriodInput: FC<Props> = ({ title, ymdhm, propertyName, o
               </option>
             ))
           }
-        </select>
+        </StyledSelect>
        <Blank width={1} />
-        <select value={selectedMonth} onChange={changeYmdhs('month')} >
+        <StyledSelect value={selectedMonth} onChange={changeYmdhs('month')} >
           {
             ymdhmList.month.map((month) => (
               <option key={month} value={month}>
@@ -54,9 +54,9 @@ export const ServiceUsePeriodInput: FC<Props> = ({ title, ymdhm, propertyName, o
               </option>
             ))
           }
-        </select>
+        </StyledSelect>
         <Blank width={1} />
-        <select value={selectedDate} onChange={changeYmdhs('date')}>
+        <StyledSelect value={selectedDate} onChange={changeYmdhs('date')}>
           {
             ymdhmList.date.map((date) => (
               <option key={date} value={date}>
@@ -64,9 +64,9 @@ export const ServiceUsePeriodInput: FC<Props> = ({ title, ymdhm, propertyName, o
               </option>
             ))
           }
-        </select>
+        </StyledSelect>
         <Blank width={1} />
-        <select value={selectedHour} onChange={changeYmdhs('hour')}>
+        <StyledSelect value={selectedHour} onChange={changeYmdhs('hour')}>
           {
             ymdhmList.hour.map((hour) => (
               <option key={hour} value={hour}>
@@ -74,9 +74,9 @@ export const ServiceUsePeriodInput: FC<Props> = ({ title, ymdhm, propertyName, o
               </option>
             ))
           }
-        </select>
+        </StyledSelect>
         <Blank width={1} />
-        <select value={selectedMinute} onChange={changeYmdhs('minute')}>
+        <StyledSelect value={selectedMinute} onChange={changeYmdhs('minute')}>
           {
             ymdhmList.minute.map((minute) => (
               <option key={minute} value={minute}>
@@ -84,7 +84,7 @@ export const ServiceUsePeriodInput: FC<Props> = ({ title, ymdhm, propertyName, o
               </option>
             ))
           }
-        </select>
+        </StyledSelect>
       </SelectorContainer>
     </FieldContainer>
   );
@@ -101,3 +101,13 @@ const SelectorContainer = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
 `;
+
+const StyledSelect = styled.select`
+  width: 20vw;
+  height: 6.5vw;
+  max-height: 40px;
+  border-radius: 3px;
+
+  font-size: 3vw;
+`;
+

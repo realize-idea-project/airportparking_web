@@ -5,17 +5,18 @@ import styled from 'styled-components';
 import { color, images } from '../../../constants';
 
 
-// interface Props {
-//   onClose: (event: FocusInputEvent) => void;
-//   children?: JSX.Element;
-// }
+interface Props {
+  onClickCloseButton: (event: any) => void;
+  onClickOverlay?: (event: any) => void;
+  children?: any;
+}
 
-export const ModalContainer = ({ onClose, children }: any) => {
+export const ModalContainer: FC<Props> = ({ onClickOverlay, onClickCloseButton, children }) => {
   return createPortal(
     <PositionRelativeContainer>
-      <Overlay onClick={onClose} />
+      <Overlay onClick={onClickOverlay} />
       <ModalViewContainer>
-        <CloseButtonImage src={images.closeButton} onClick={onClose} />
+        <CloseButtonImage src={images.closeButton} onClick={onClickCloseButton} />
         {children}
       </ModalViewContainer>
     </PositionRelativeContainer>,

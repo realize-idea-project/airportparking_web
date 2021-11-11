@@ -3,4 +3,4 @@ export { Header } from './Header'
 export { Footer } from './Footer';
 export { PageContainer } from './PageContainer';
 export { DynamicNaverMap } from './CustomMap';
-export { ModalContainer } from './Modal';
+export { ModalContainer, useModal } from './Modal';

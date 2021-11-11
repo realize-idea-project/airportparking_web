@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { ModalContainer } from '../../common';
 
-export const PriceModal = () => {
+interface Props {
+  onClose: () => void;
+}
+
+export const PriceModal: FC<Props> = ({ onClose }) => {
   return (
-    <ModalContainer>
+    <ModalContainer onClickCloseButton={onClose} onClickOverlay={onClose}>
       hi
     </ModalContainer>
   );

@@ -17,11 +17,12 @@ interface Props {
   dateFromYmdhm: string;
   dateToYmdhm: string;
   onChangeDate: (event: ChangeEvent<HTMLSelectElement>) => void;
+  onClickCalculationButton: () => void;
 }
 
 const { dateFrom, dateTo } = reservationProperties;
 
-export const ServiceUsePeriod: FC<Props> = ({ dateFromYmdhm, dateToYmdhm, onChangeDate }) => {
+export const ServiceUsePeriod: FC<Props> = ({ dateFromYmdhm, dateToYmdhm, onChangeDate, onClickCalculationButton }) => {
   return (
     <Container>
       <Blank height={5} />
@@ -45,7 +46,7 @@ export const ServiceUsePeriod: FC<Props> = ({ dateFromYmdhm, dateToYmdhm, onChan
       <Blank height={5} />
       <Notifications />
       <Blank height={5} />
-      <CalculateButton>실시간 요금 계산</CalculateButton>
+      <CalculateButton onClick={onClickCalculationButton} >실시간 요금 계산</CalculateButton>
       <Blank height={5} />
     </Container>
   );

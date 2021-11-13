@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { color } from '../../../constants';
 import { ClickEvent, ChangeEvent } from '../../../types';
+import { color } from '../../../constants';
 import { reservationProperties } from '../../../pages/Reservation/constants';
 import { Blank } from '../../common';
 

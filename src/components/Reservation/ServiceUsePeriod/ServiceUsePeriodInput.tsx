@@ -1,18 +1,17 @@
 import React, { FC } from 'react';
 import dayjs from 'dayjs';
 import styled from 'styled-components';
-import { dateFormat } from '../../../constants';
+import { dateFormat , ServiceDateKey } from '../../../business';
 import { ChangeEvent } from '../../../types';
 import { getModifiedEvent } from '../../../utils';
 import { Blank } from '../../common';
 
-import { FromToDateKey } from '../../../pages/Reservation/types';
 import { ymdhmList, getYmdhm } from './helpers';
 
 interface Props {
   title: string;
   ymdhm: string;
-  propertyName: FromToDateKey;
+  propertyName: ServiceDateKey;
   onChangeDate: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 

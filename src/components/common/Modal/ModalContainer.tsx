@@ -17,6 +17,7 @@ export const ModalContainer: FC<Props> = ({ onClickOverlay, onClickCloseButton, 
       <Overlay onClick={onClickOverlay} />
       <ModalViewContainer>
         <CloseButtonImage src={images.closeButton} onClick={onClickCloseButton} />
+        
         {children}
       </ModalViewContainer>
     </PositionRelativeContainer>,
@@ -37,14 +38,14 @@ const Overlay = styled.div`
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9997;
+  z-index: 4;
 `;
 
 const ModalViewContainer = styled.div`
-  width: 10vw;
+  width: 80vw;;
   padding: 5vw;
   background-color: ${color.white};
-  border-radius: 5px;
+  border-radius: 1.5vw;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.6);
 
   position: fixed;
@@ -52,17 +53,21 @@ const ModalViewContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  z-index: 9998;
+  z-index: 5;
 `;
 
 const CloseButtonImage = styled.img`
-  width: 10vw;
-  height: 10vw;
+  width: 4vw;
+  height: 4vw;
   cursor: pointer;
-
+  
   position: absolute;
-  top: 10vw;
-  right: 10vw;
+  top: 4vw;
+  right: 4vw;
+`;
+
+const CloseButtonContainer = styled.div`
+  height: 4vw;
 `;
 
 

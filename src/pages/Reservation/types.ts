@@ -1,6 +1,3 @@
+import { ServiceDateKey } from '../../business';
 
-export type ReservationProperties = FromToDateKey;
-
-
-export type FromToDateKey = 'dateFrom' | 'dateTo';
-export type FromToDate = Record<FromToDateKey, string>;
+export type ReservationProperties = ServiceDateKey;

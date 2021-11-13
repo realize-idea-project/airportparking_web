@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
-import { color, images } from '../../../constants';
+import { color, images, ScreenBreakPoint } from '../../../constants';
 
+const { MobileXXS, MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 
 interface Props {
   onClickCloseButton: (event: any) => void;
@@ -42,16 +43,45 @@ const Overlay = styled.div`
 `;
 
 const ModalViewContainer = styled.div`
-  width: 80vw;;
+  width: 80vw;
   padding: 5vw;
   background-color: ${color.white};
   border-radius: 1.5vw;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.6);
 
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  
+  left: 50vw;
+  transform: translate(-45vw, -15vw);
+
+  @media only screen and (${ MobileXXS }) {
+    top: 45vw;
+  }
+
+  @media only screen and (${ MobileXS }) {
+    top: 45vw;
+  }
+
+  @media only screen and (${ MobileS }) {
+    top: 43vw;
+  }
+
+  @media only screen and (${ MobileM }) {
+    top: 40vw;
+  }
+
+  @media only screen and (${ MobileL }) {
+    top: 40vw;
+  }
+
+  @media only screen and (${ PadS }) {
+    top: 40vw;
+  }
+
+  @media only screen and (${ Desktop }) {
+    top: 35vw;
+  }
+
 
   z-index: 5;
 `;
@@ -65,16 +95,3 @@ const CloseButtonImage = styled.img`
   top: 4vw;
   right: 4vw;
 `;
-
-const CloseButtonContainer = styled.div`
-  height: 4vw;
-`;
-
-
-// width: ${unit(24)};
-//   height: ${unit(24)};
-//   cursor: pointer;
-
-//   position: absolute;
-//   top: ${unit(30)};
-//   right: ${unit(30)};

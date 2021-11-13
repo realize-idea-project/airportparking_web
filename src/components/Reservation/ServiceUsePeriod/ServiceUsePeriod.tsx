@@ -25,8 +25,8 @@ const { dateFrom, dateTo } = reservationProperties;
 export const ServiceUsePeriod: FC<Props> = ({ dateFromYmdhm, dateToYmdhm, onChangeDate, onClickCalculationButton }) => {
   return (
     <Container>
-      <Blank height={5} />
-      <NotiText>※ 24시간 기준으로 입력해 주세요.</NotiText>
+      {/* <Blank height={5} />
+      <NotiText>※ 24시간 기준으로 입력해 주세요.</NotiText> */}
       <Blank height={5} />
       <>
         <ServiceUsePeriodInput
@@ -43,10 +43,12 @@ export const ServiceUsePeriod: FC<Props> = ({ dateFromYmdhm, dateToYmdhm, onChan
           propertyName={dateTo}
         />
       </>
-      <Blank height={5} />
-      <Notifications />
-      <Blank height={5} />
-      <CalculateButton onClick={onClickCalculationButton} >실시간 요금 계산</CalculateButton>
+      {/* <Blank height={5} /> */}
+      {/* <Notifications /> */}
+      <Blank height={8} />
+      <CalculateButtonContainer>
+        <CalculateButton onClick={onClickCalculationButton} >실시간 요금 계산</CalculateButton>
+      </CalculateButtonContainer>
       <Blank height={5} />
     </Container>
   );
@@ -62,10 +64,18 @@ const NotiText = styled.div`
   font-size: 4vw;
 `;
 
+const CalculateButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const CalculateButton = styled.div`
   color: white;
   background-color: black;
   text-align: center;
-  padding: 4vw 0;
-  font-size: 4.5vw;
+  width: 40vw;
+  padding: 3vw 0;
+  font-size: 3vw;
+  border-radius: 1vw;
 `;

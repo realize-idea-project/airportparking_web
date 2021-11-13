@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import dayjs from 'dayjs';
 import { ChangeEvent } from '../../types';
 import {
   getInitailServieDate,
@@ -25,9 +24,8 @@ export const useServiceDate = () => {
     setServiceDate((prev) => ({ ...prev, [name]: value }));
   };
 
-  getHowManyDaysUseService(serviceDate.dateFrom, serviceDate.dateTo)
-
   return {
+    serviceDays: getHowManyDaysUseService(serviceDate.dateFrom, serviceDate.dateTo),
     serviceDate,
     changeServiceDate,
   };

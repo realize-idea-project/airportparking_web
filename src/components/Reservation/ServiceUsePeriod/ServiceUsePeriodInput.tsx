@@ -104,7 +104,7 @@ const SelectorContainer = styled.div`
 const StyledSelect = styled.select`
   width: 20vw;
   height: 6.5vw;
-  max-height: 40px;
+  max-height: 56px;
   border-radius: 3px;
 
   font-size: 3vw;

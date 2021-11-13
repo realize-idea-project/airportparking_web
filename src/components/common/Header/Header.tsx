@@ -6,7 +6,7 @@ import { ScreenBreakPoint, RouterPath, images, DeviceSize, HeaderHeight } from '
 import { screenWidth } from '../../../utils'
 import { RouterPathType } from '../../../types';
 
-const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
+const { MobileXXS, MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 const { Desktop_S } = DeviceSize;
 
 
@@ -39,6 +39,10 @@ const Container = styled.div`
   position: fixed;
   background-color: tomato;
   
+  @media only screen and (${ MobileXXS }) {
+    height: ${HeaderHeight.mobileXXS};
+    background-color: beige;
+  }
 
   @media only screen and (${ MobileXS }) {
     height: ${HeaderHeight.mobileXS};
@@ -73,6 +77,11 @@ const Container = styled.div`
 
 const LogoContainer = styled.div`
   cursor: pointer;
+
+  @media only screen and (${ MobileXXS }) {
+    height: ${HeaderHeight.mobileXXS};
+    background-color: beige;
+  }
 
   @media only screen and (${ MobileXS }) {
     height: ${HeaderHeight.mobileXS};

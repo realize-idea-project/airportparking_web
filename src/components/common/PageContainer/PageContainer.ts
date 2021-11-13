@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 import { ScreenBreakPoint, HeaderHeight } from '../../../constants';
 
-const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
+const { MobileXXS, MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 
 export const PageContainer = styled.div`
+
+  @media only screen and (${ MobileXXS }) {
+    padding-top: ${HeaderHeight.mobileXXS};
+  }
 
   @media only screen and (${ MobileXS }) {
     padding-top: ${HeaderHeight.mobileXS};

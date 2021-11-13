@@ -4,7 +4,7 @@ import { reservationContact, serviceContact } from '../../../business';
 import { Blank } from '../../common';
 import { ScreenBreakPoint } from '../../../constants';
 
-const { MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
+const { MobileXXS, MobileXS, MobileS, MobileM, MobileL, PadS, Desktop } = ScreenBreakPoint;
 
 export const ContactCard: FC = () => {
 
@@ -38,6 +38,10 @@ const ContactContainer = styled.div`
   height: 48vw;
   width: 80vw;
   left: 4.5vw;
+
+  @media only screen and (${ MobileXXS }) {
+    bottom: 2vw;
+  }
 
   @media only screen and (${ MobileXS }) {
     bottom: 2vw;

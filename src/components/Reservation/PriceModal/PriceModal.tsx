@@ -8,6 +8,7 @@ interface Props {
   onClose: () => void;
   dateFrom: string;
   dateTo: string;
+  serviceDays: number;
 }
 
 interface ServicePeriodProps {
@@ -25,17 +26,17 @@ const ServicePeriod: FC<ServicePeriodProps> = ({ title, date }) => {
   );
 };
 
-const TotalPeriod = ({ servicePeriod }: any) => {
+const TotalPeriod = ({ serviceDays }: any) => {
   return (
     <FieldContainer>
     <Label>이용기간</Label>
     <Blank width={3} />
-    <Contents>{`${servicePeriod}일`}</Contents>
+    <Contents>{`${serviceDays}일`}</Contents>
   </FieldContainer>
   );
 };
 
-export const PriceModal: FC<Props> = ({ onClose, dateFrom, dateTo }) => {
+export const PriceModal: FC<Props> = ({ onClose, dateFrom, dateTo, serviceDays }) => {
   
 
   return (
@@ -50,7 +51,7 @@ export const PriceModal: FC<Props> = ({ onClose, dateFrom, dateTo }) => {
           <Blank height={1} />
           <ServicePeriod title='차량 출고일' date={dateTo} />
           <Blank height={1} />
-          <TotalPeriod servicePeriod={1} />
+          <TotalPeriod serviceDays={serviceDays} />
         </ServiceUsePeriodContainer>
       </ContentContainer>
     </ModalContainer>

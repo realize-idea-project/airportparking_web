@@ -63,7 +63,7 @@ const ModalViewContainer = styled.div`
   }
 
   @media only screen and (${ MobileS }) {
-    top: 43vw;
+    top: 45vw;
   }
 
   @media only screen and (${ MobileM }) {

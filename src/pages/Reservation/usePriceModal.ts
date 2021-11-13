@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
+import { reservationPageAlertMessages } from './constants';
 
-export const useModal = () => {
+
+
+export const usePriceModal = (serviceDays: number) => {
   const [isModalOpened, setIsModalOpened] = useState(false);
 
   const openModal = () => {
+    if (serviceDays === 0) {
+      alert(reservationPageAlertMessages.openModalAlert);
+      return;
+    }
+
     setIsModalOpened(true);
   };
 

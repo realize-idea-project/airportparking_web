@@ -1,3 +1,5 @@
-export { selectDateErrorCase } from './changeDateErrorCase';
+export type { ErrorCode } from './changeDateErrorCodes';
+export { selectDateErrorCodes } from './changeDateErrorCodes';
+
 export { dateFormat } from './dateFormat';
-export { reservationPageMessage } from './alertMessage';
+export { changeDateAlertMessage } from './changeDateAlertMessage';

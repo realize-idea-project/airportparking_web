@@ -1,42 +1,67 @@
 /* eslint-disable react/require-default-props */
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { ServiceDate } from '../../../../business';
+import { thousandSpread } from '../../../../utils';
 import { Blank } from '../../../common';
 
 
 interface ServicePeriodProps {
   title?: string;
   date?: string;
-  serviceDays?: number;
 }
 
-const ServicePeriod: FC<ServicePeriodProps> = ({ title, date, serviceDays }) => {
-  const label = serviceDays ? '이용기간' : title;
-  const content = serviceDays ? `${serviceDays}일` : date;
+const ServicePeriod: FC<ServicePeriodProps> = ({ title, date }) => {
 
   return (
     <FieldContainer>
-      <Label>{label}</Label>
+      <Label>{title}</Label>
       <Blank width={3} />
-      <Contents>{content}</Contents>
+      <Contents>{date}</Contents>
+    </FieldContainer>
+  );
+};
+
+interface ServiceDaysAndPriceProps {
+  title: string;
+  serviceDays?: number;
+  servicePrice?: number;
+}
+
+const ServiceDaysAndPrice: FC<ServiceDaysAndPriceProps> = ({ title, servicePrice, serviceDays }) => {
+  const unit = servicePrice ? '원' : '일';
+  const content = servicePrice ? thousandSpread(servicePrice) : serviceDays;
+  const color = servicePrice ? 'black' : 'red';
+  const fontSize = servicePrice ? '3vw' : '';
+
+  return (
+    <FieldContainer>
+      <Label>{title}</Label>
+      <Blank width={3} />
+      <Contents style={{ fontSize }}>
+        <HighlightSpan color={color}>{content}</HighlightSpan>
+        {unit}
+        </Contents>
     </FieldContainer>
   );
 };
 
 interface ServicePeriodAndPriceProps {
-  dateFrom : string;
-  dateTo: string;
+  serviceDate: ServiceDate;
   serviceDays: number;
+  servicePrice: number;
 }
 
-export const ServicePeriodAndPrice: FC<ServicePeriodAndPriceProps> = ({ dateFrom, dateTo, serviceDays }) => {
+export const ServicePeriodAndPrice: FC<ServicePeriodAndPriceProps> = ({ serviceDate, serviceDays, servicePrice }) => {
   return (
     <ServiceUsePeriodContainer>
-      <ServicePeriod title='차량 입고일' date={dateFrom} />
+      <ServicePeriod title='차량 입고일' date={serviceDate.dateFrom} />
       <Blank height={1} />
-      <ServicePeriod title='차량 출고일' date={dateTo} />
+      <ServicePeriod title='차량 출고일' date={serviceDate.dateTo} />
       <Blank height={1} />
-      <ServicePeriod serviceDays={serviceDays} />
+      <ServiceDaysAndPrice title='이용 기간' serviceDays={serviceDays} />
+      <Blank height={3} />
+      <ServiceDaysAndPrice title='이용 요금' servicePrice={servicePrice} />
     </ServiceUsePeriodContainer>
   );
 };
@@ -51,14 +76,13 @@ const FieldContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
-  
 `;
 
 const Label = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   width: 20vw;
   font-size: 2.5vw;
   padding: 0 1vw;
@@ -71,4 +95,8 @@ const Contents = styled.div`
 
   height: 100%;
   font-size: 2.5vw;
+`;
+
+const HighlightSpan = styled.span`
+  color: ${({ color }:any ) => color}
 `;

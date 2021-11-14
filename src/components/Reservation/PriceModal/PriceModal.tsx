@@ -2,17 +2,21 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 
 import { ModalContainer, Blank } from '../../common';
+import { ServiceDate } from '../../../business';
 import { color } from '../../../constants';
 import { ServicePeriodAndPrice } from './PriceModalViewItems';
 
 interface Props {
   onClose: () => void;
-  dateFrom: string;
-  dateTo: string;
+  serviceDate: ServiceDate
   serviceDays: number;
+  servicePrice: number;
 }
 
-export const PriceModal: FC<Props> = ({ onClose, dateFrom, dateTo, serviceDays }) => {
+export const PriceModal: FC<Props> = ({ onClose, serviceDate, serviceDays, servicePrice }) => {
+
+  // 가격 표시
+  // 가격 설명 표시 in modal
 
   return (
     <ModalContainer onClickCloseButton={onClose} onClickOverlay={onClose}>
@@ -21,7 +25,7 @@ export const PriceModal: FC<Props> = ({ onClose, dateFrom, dateTo, serviceDays }
         <Blank height={2} />
         <Separator />
         <Blank height={2} />
-        <ServicePeriodAndPrice dateFrom={dateFrom} dateTo={dateTo} serviceDays={serviceDays} />
+        <ServicePeriodAndPrice serviceDate={serviceDate} serviceDays={serviceDays} servicePrice={servicePrice} />
 
       </PriceModalViewContainer>
     </ModalContainer>

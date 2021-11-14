@@ -13,6 +13,12 @@ export {
 } from './company';
 
 
-export { getInitailServieDate, getHowManyDaysUseService, getErrorCode, getErrorMessage } from './serviceDate';
 export type { ServiceDateKey, ServiceDate } from './serviceDate/types';
 export { dateFormat } from './serviceDate/constants';
+export {
+  getInitailServieDate,
+  getHowManyDaysUseService,
+  getErrorCode,
+  getErrorMessage,
+  getServicePrice
+} from './serviceDate';

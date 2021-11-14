@@ -7,6 +7,7 @@ import {
   ServiceDateKey,
   getErrorCode,
   getErrorMessage,
+  getServicePrice,
 } from '../../business';
 
 export const useServiceDate = () => {
@@ -24,9 +25,14 @@ export const useServiceDate = () => {
     setServiceDate((prev) => ({ ...prev, [name]: value }));
   };
 
+  const isDateSelected = (dateFrom: string, dateTo: string) => dateFrom !== dateTo;
+
+
   return {
-    serviceDays: getHowManyDaysUseService(serviceDate.dateFrom, serviceDate.dateTo),
-    serviceDate,
     changeServiceDate,
+    serviceDate,
+    serviceDays: getHowManyDaysUseService(serviceDate.dateFrom, serviceDate.dateTo),
+    servicePrice: getServicePrice(serviceDate.dateFrom, serviceDate.dateTo),
+    isDateSelected: isDateSelected(serviceDate.dateFrom, serviceDate.dateTo),
   };
 };

@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { ClickEvent, ChangeEvent } from '../../../types';
+import { ServiceDate } from '../../../business';
 import { color } from '../../../constants';
 import { reservationProperties } from '../../../pages/Reservation/constants';
 import { Blank } from '../../common';
@@ -14,15 +15,14 @@ const inputTitles = {
 };
 
 interface Props {
-  dateFromYmdhm: string;
-  dateToYmdhm: string;
+  serviceDate: ServiceDate;
   onChangeDate: (event: ChangeEvent<HTMLSelectElement>) => void;
   onClickCalculationButton: () => void;
 }
 
 const { dateFrom, dateTo } = reservationProperties;
 
-export const ServiceUsePeriod: FC<Props> = ({ dateFromYmdhm, dateToYmdhm, onChangeDate, onClickCalculationButton }) => {
+export const ServiceUsePeriod: FC<Props> = ({ serviceDate, onChangeDate, onClickCalculationButton }) => {
   return (
     <Container>
       {/* <Blank height={5} />
@@ -31,14 +31,14 @@ export const ServiceUsePeriod: FC<Props> = ({ dateFromYmdhm, dateToYmdhm, onChan
       <>
         <ServiceUsePeriodInput
           title={inputTitles.departure}
-          ymdhm={dateFromYmdhm}
+          ymdhm={serviceDate.dateFrom}
           onChangeDate={onChangeDate}
           propertyName={dateFrom}
         />
         <Blank height={5} />
         <ServiceUsePeriodInput
           title={inputTitles.arrival}
-          ymdhm={dateToYmdhm}
+          ymdhm={serviceDate.dateTo}
           onChangeDate={onChangeDate}
           propertyName={dateTo}
         />

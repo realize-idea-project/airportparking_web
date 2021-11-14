@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import { loadHolidayDates } from '../../api';
 import { AirportType } from '../../types';
 import { withLayout } from '../../shared';
 import { color } from '../../constants';
@@ -14,26 +15,21 @@ import { useServiceDate } from './useServiceDate';
 const GimpoAirport: AirportType = "Gimpo";
 
 export const Reservation = withLayout(() => {
-  const { serviceDays, serviceDate, changeServiceDate } = useServiceDate();
-  const { isModalOpened, openModal, closeModal } = usePriceModal(serviceDays);
+  const { serviceDays, serviceDate, changeServiceDate, servicePrice, isDateSelected } = useServiceDate();
+  const { isModalOpened, openModal, closeModal } = usePriceModal(isDateSelected);
+
 
   return (
     <>
       <PageContainer>
         <ReservationHeader airportType={GimpoAirport}/>
-        <ServiceUsePeriod
-          dateFromYmdhm={serviceDate.dateFrom}
-          dateToYmdhm={serviceDate.dateTo}
-          onChangeDate={changeServiceDate}
-          onClickCalculationButton={openModal}
-        />
+        <ServiceUsePeriod serviceDate={serviceDate} onChangeDate={changeServiceDate} onClickCalculationButton={openModal} />
       </PageContainer>
       {isModalOpened && (
-        <PriceModal
-          onClose={closeModal}
-          dateFrom={serviceDate.dateFrom}
-          dateTo={serviceDate.dateTo}
+        <PriceModal onClose={closeModal}
+          serviceDate={serviceDate}
           serviceDays={serviceDays}
+          servicePrice={servicePrice}
         />
       )}
     </>

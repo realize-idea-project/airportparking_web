@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Blank } from '../../common';
+import { Blank } from '../../../common';
 
 export const Notifications: FC = () => {
  return (
    <Container>
+      <NotiText>※ 요일제 요금제를 적용합니다.</NotiText>
+      <Blank height={2} />
+      <NotiText>※ 월 - 목: 10,000원 / 금, 토, 일, 공휴일: 15,000원</NotiText>
+      <Blank height={2} />
       <NotiText>※ 대행료 10,000원 포함 금액이니 참고하시기 바랍니다.</NotiText>
       <Blank height={2} />
-      <NotiText>※ 출발이나 도착시간은 김포공항 도착시간으로 정확히 기록해 주세요.</NotiText>
+      <NotiText>※ 기본요금은 30,000원 이며 30,000원 이상의 금액만 요일별 요금이 적용되어 집니다.</NotiText>
       <Blank height={2} />
       <NotiText>※ 일정이 변경이 되거나 비행기출발 지연시 당사로 꼭 연락 바랍니다.</NotiText>
       <Blank height={2} />
@@ -16,9 +20,11 @@ export const Notifications: FC = () => {
  )
 };
 
+
+
 const Container = styled.div``;
 
 const NotiText = styled.div`
-  color: red;
-  font-size: 4.5vw;
+  
+  font-size: 2vw;
 `;

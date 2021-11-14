@@ -7,7 +7,6 @@ import { reservationProperties } from '../../../pages/Reservation/constants';
 import { Blank } from '../../common';
 
 import { ServiceUsePeriodInput } from './ServiceUsePeriodInput';
-import { Notifications } from './Notifications';
 
 const inputTitles = {
   departure: '차량 접수 예정 시간',

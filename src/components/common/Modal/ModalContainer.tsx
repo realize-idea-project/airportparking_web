@@ -48,38 +48,39 @@ const ModalViewContainer = styled.div`
   background-color: ${color.white};
   border-radius: 1.5vw;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.6);
-
-  position: fixed;
+  
+  position: absolute;
   
   left: 50vw;
+  top: -130vw;
   transform: translate(-45vw, -15vw);
 
   @media only screen and (${ MobileXXS }) {
-    top: 45vw;
+    top: -129vw;
   }
 
   @media only screen and (${ MobileXS }) {
-    top: 45vw;
+    top: -129vw;
   }
 
   @media only screen and (${ MobileS }) {
-    top: 45vw;
+    top: -128vw;
   }
 
   @media only screen and (${ MobileM }) {
-    top: 40vw;
+    top: -128vw;
   }
 
   @media only screen and (${ MobileL }) {
-    top: 40vw;
+    top: -128vw;
   }
 
   @media only screen and (${ PadS }) {
-    top: 40vw;
+    top: -125vw;
   }
 
   @media only screen and (${ Desktop }) {
-    top: 35vw;
+    top: -120vw;
   }
 
 
@@ -90,6 +91,9 @@ const CloseButtonImage = styled.img`
   width: 4vw;
   height: 4vw;
   cursor: pointer;
+
+  max-width: 20px;
+  max-height: 20px;
   
   position: absolute;
   top: 4vw;

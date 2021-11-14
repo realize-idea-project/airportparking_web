@@ -5,6 +5,7 @@ import { ModalContainer, Blank } from '../../common';
 import { ServiceDate } from '../../../business';
 import { color } from '../../../constants';
 import { ServicePeriodAndPrice } from './PriceModalViewItems';
+import { Notifications } from './PriceModalViewItems/Notifications';
 
 interface Props {
   onClose: () => void;
@@ -15,26 +16,31 @@ interface Props {
 
 export const PriceModal: FC<Props> = ({ onClose, serviceDate, serviceDays, servicePrice }) => {
 
-  // 가격 표시
-  // 가격 설명 표시 in modal
-
   return (
-    <ModalContainer onClickCloseButton={onClose} onClickOverlay={onClose}>
+    <ModalContainer onClickCloseButton={onClose}>
       <PriceModalViewContainer>
         <Title>예상 결제금액</Title>
         <Blank height={2} />
         <Separator />
         <Blank height={2} />
-        <ServicePeriodAndPrice serviceDate={serviceDate} serviceDays={serviceDays} servicePrice={servicePrice} />
-
+        <ServicePeriodAndPrice
+          serviceDate={serviceDate}
+          serviceDays={serviceDays}
+          servicePrice={servicePrice}
+        />
+        <Separator />
+        <Blank height={2} />
+        <Notifications />
+        <Blank height={6} />
+        <ConfirmButtonContainer>
+          <ConfirmButton onClick={onClose}>확인</ConfirmButton>
+        </ConfirmButtonContainer>
       </PriceModalViewContainer>
     </ModalContainer>
   );
 };
 
-const PriceModalViewContainer = styled.div`
-  /* background-color: red; */
-`;
+const PriceModalViewContainer = styled.div``;
 
 const Separator = styled.div`
   width: 100%;
@@ -44,4 +50,17 @@ const Separator = styled.div`
 
 const Title = styled.div`
   font-size: 4vw;
+`;
+
+const ConfirmButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const ConfirmButton = styled.div`
+  background-color: ${color.gray_150};
+  border-radius: 1vw;
+  padding: 1.5vw 10vw;
+  margin-right: 5vw;
+  cursor: pointer;
 `;

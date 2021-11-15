@@ -1,2 +1,2 @@
 
-export const openApiUrl = 'http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService';
+export const openApiHolidayUrl = `${process.env.REACT_APP_OPEN_API_HOLIDAY_PROXY_KEY}/openapi/service/SpcdeInfoService`;

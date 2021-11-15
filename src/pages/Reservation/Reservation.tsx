@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { loadHolidayDates } from '../../api';
 import { AirportType } from '../../types';
 import { withLayout } from '../../shared';
-import { color } from '../../constants';
 import { PageContainer } from '../../components/common';
 
 import { ReservationHeader, ServiceUsePeriod, PriceModal } from '../../components/Reservation';
@@ -19,6 +18,17 @@ export const Reservation = withLayout(() => {
   const { isModalOpened, openModal, closeModal } = usePriceModal(isDateSelected);
 
 
+  useEffect(() => {
+    // useServiceDate  move to useServiceDate hook
+    const test = async () => {
+      console.log('excute')
+      const res = await loadHolidayDates(2021, '공휴일');
+      console.log(res,'res')
+    }
+
+    test()
+  }, [])
+  
   return (
     <>
       <PageContainer>

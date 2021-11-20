@@ -17,13 +17,14 @@ const GimpoAirport: AirportType = "Gimpo";
 export const Reservation = withLayout(() => {
   const { serviceDays, serviceDate, changeServiceDate, servicePrice, isDateSelected } = useServiceDate();
   const { isModalOpened, openModal, closeModal } = usePriceModal(isDateSelected);
+  const { customerInfo, changeCustomerInfo } = useCustomerInfo();
   
   return (
     <>
       <PageContainer>
         <ReservationHeader airportType={GimpoAirport}/>
         <ServiceUsePeriod serviceDate={serviceDate} onChangeDate={changeServiceDate} onClickCalculationButton={openModal} />
-        <CustomerInfo />
+        <CustomerInfo customerInfo={customerInfo} changeCustomerInfo={changeCustomerInfo}/>
       </PageContainer>
       {isModalOpened && (
         <PriceModal onClose={closeModal}

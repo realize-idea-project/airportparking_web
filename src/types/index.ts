@@ -1,2 +1,2 @@
-export type { RouterPathType, AirportType } from './common';
+export type { RouterPathType, AirportType, EmptyObject } from './common';
 export type { ClickEvent, ChangeEvent } from './events';

@@ -1,27 +1,30 @@
 import React, { FC } from 'react';
-import dayjs from 'dayjs';
 import styled from 'styled-components';
-import { dateFormat , ServiceDateKey } from '../../../business';
 import { ChangeEvent } from '../../../types';
 import { color } from '../../../constants';
 import { getModifiedEvent } from '../../../utils';
 import { Blank } from '../../common';
 
-import { ymdhmList, getYmdhm } from '../ServiceUsePeriod/helpers';
+import { CustomerInfoType, CustomerInfoKeys } from '../../../pages/Reservation/useCustomerInfo';
+import { CustomerNameInput } from './CustomerNameInput';
 
-export const CustomerInfo = () => {
+interface Props {
+  customerInfo: CustomerInfoType | undefined;
+  changeCustomerInfo: (key: CustomerInfoKeys, value: any) => void;
+}
+
+export const CustomerInfo: FC<Props> = ({ customerInfo, changeCustomerInfo }) => {
   return (
     <Container>
-       <Blank height={5} />
-      <FieldContainer>
-        <FieldTitleContainer>
-          <FieldTItle>title</FieldTItle>
-        </FieldTitleContainer>
-        <Blank width={5} />
-        <FieldInputContainer>
-          <FieldInput>input</FieldInput>
-        </FieldInputContainer>
-      </FieldContainer>
+      <Blank height={5} />
+      <CustomerNameInput
+        fieldName='예약자 이름'
+        customerInfoKey='name'
+        customerName={customerInfo?.name}
+        onChangeName={changeCustomerInfo}
+      />
+      <Blank height={5} />
+      
     </Container>
   );
 };
@@ -30,22 +33,5 @@ const Container = styled.div`
   background-color: ${color.white};
   display: flex;
   flex-direction: column;
-  
+  padding: 0 6vw;
 `;
-
-const FieldContainer = styled.div`
-  border: 1px solid pink;
-  display: flex;
-  flex-direction: row;
-`;
-const FieldTitleContainer = styled.div`
-  flex: 2;
-  border: 1px solid green;
-`;
-const FieldTItle = styled.div``;
-
-const FieldInputContainer = styled.div`
-  flex: 6;
-  border: 1px solid tomato;
-`;
-const FieldInput = styled.div``;

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { ClickEvent, ChangeEvent } from '../../../types';
+import { ChangeEvent } from '../../../types';
 import { ServiceDate } from '../../../business';
 import { color } from '../../../constants';
 import { reservationProperties } from '../../../pages/Reservation/constants';
@@ -24,8 +24,6 @@ const { dateFrom, dateTo } = reservationProperties;
 export const ServiceUsePeriod: FC<Props> = ({ serviceDate, onChangeDate, onClickCalculationButton }) => {
   return (
     <Container>
-      {/* <Blank height={5} />
-      <NotiText>※ 24시간 기준으로 입력해 주세요.</NotiText> */}
       <Blank height={5} />
       <>
         <ServiceUsePeriodInput
@@ -42,8 +40,6 @@ export const ServiceUsePeriod: FC<Props> = ({ serviceDate, onChangeDate, onClick
           propertyName={dateTo}
         />
       </>
-      {/* <Blank height={5} /> */}
-      {/* <Notifications /> */}
       <Blank height={8} />
       <CalculateButtonContainer>
         <CalculateButton onClick={onClickCalculationButton} >실시간 요금 계산</CalculateButton>

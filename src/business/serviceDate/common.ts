@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import _ from 'lodash';
+import { loadHolidayDates } from '../../api';
 import { dateFormat, priceSystem, officialHoliday, ymdDateFormat, sunday, saturday, friday } from './constants';
 import { ServiceDate } from './types';
 import { openHour } from '../company';
@@ -37,9 +38,8 @@ export const getHowManyDaysUseService = (dateFrom: string, dateTo: string) => {
   return howManyDays;
 };
 
-
-const isHoliday = (date: string) => officialHoliday.includes(date);
 const isWeekend = (date: string) => dayjs(date).day() === sunday || dayjs(date).day() === saturday || dayjs(date).day() === friday;
+const isHoliday = (date: string) => officialHoliday.includes(date);
 
 export const getServicePrice = (dateFrom: string, dateTo: string) => {
   const { weekdayPrice, holidayPrice, minimumPrice, valetFee } = priceSystem;

@@ -1,19 +1,19 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import { Blank } from '../../common';
-import { ChangeEvent } from '../../../types';
-import { CustomerInfoKeys } from '../../../pages/Reservation/useCustomerInfo';
+import { Blank } from '../../../common';
+import { ChangeEvent } from '../../../../types';
+import { CustomerInfoKeys } from '../../../../pages/Reservation/useCustomerInfo';
 
 import { CustomerInfoInputField } from './CustomerInfoInputField';
 
 interface Props {
   customerInfoKey: CustomerInfoKeys;
   onChangeName: (key: CustomerInfoKeys, value: string) => void;
-  customerName: string | undefined;
+  customerPassword: string | undefined;
   fieldName: string;
 }
 
-export const CustomerNameInput: FC<Props> = ({ fieldName, customerName, customerInfoKey, onChangeName }) => {
+export const CustomerPasswordInput: FC<Props> = ({ fieldName, customerPassword, customerInfoKey, onChangeName }) => {
   
   const changeName = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -22,7 +22,11 @@ export const CustomerNameInput: FC<Props> = ({ fieldName, customerName, customer
 
   return (
     <CustomerInfoInputField fieldName={fieldName}>
-      <StyledInput value={customerName ?? ''} onChange={changeName} name={customerInfoKey} />
+      <StyledInput
+        value={customerPassword ?? ''}
+        onChange={changeName}
+        name={customerInfoKey}
+      />
     </CustomerInfoInputField>
   );
 };
